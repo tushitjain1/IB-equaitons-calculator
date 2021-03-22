@@ -7,6 +7,7 @@ class Calc:
         self.flags = RESIZABLE
         self.rect = Rect(0, 0, 900, 650)
         Calc.screen = pygame.display.set_mode(self.rect.size, self.flags)
+        pygame.display.set_caption("IB equations calculator")
         Calc.running = True
 
     def run(self):
