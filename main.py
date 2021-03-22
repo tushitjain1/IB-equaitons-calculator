@@ -5,7 +5,7 @@ class Calc:
     def __init__(self):
         pygame.init()
         self.flags = RESIZABLE
-        self.rect = Rect(0, 0, 640, 640)
+        self.rect = Rect(0, 0, 900, 650)
         Calc.screen = pygame.display.set_mode(self.rect.size, self.flags)
         Calc.running = True
 
@@ -14,6 +14,9 @@ class Calc:
             for event in pygame.event.get():
                 if event.type == QUIT:
                     Calc.running = False
+
+            Calc.screen.fill(Color('gray'))
+            pygame.display.update()
         pygame.quit()
 
 
