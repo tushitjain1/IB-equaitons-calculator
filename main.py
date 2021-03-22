@@ -8,6 +8,8 @@ class Calc:
         self.rect = Rect(0, 0, 900, 650)
         Calc.screen = pygame.display.set_mode(self.rect.size, self.flags)
         pygame.display.set_caption("IB equations calculator")
+        icon = pygame.image.load("./icons/calc.png")
+        pygame.display.set_icon(icon)
         Calc.running = True
 
     def run(self):
@@ -15,6 +17,8 @@ class Calc:
             for event in pygame.event.get():
                 if event.type == QUIT:
                     Calc.running = False
+                if event.type == VIDEORESIZE:
+                    screen = pygame.display.set_mode((event.w, event.h), RESIZABLE)
 
             Calc.screen.fill(Color('gray'))
             pygame.display.update()
