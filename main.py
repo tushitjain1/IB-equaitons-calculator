@@ -13,21 +13,26 @@ class Calc:
         pygame.display.set_caption("IB equations calculator")
         icon = pygame.image.load("./icons/calc.png")
         pygame.display.set_icon(icon)
+
+
         Calc.running = True
 
     def run(self):
         while Calc.running:
+            Calc.screen.fill(Color(214,240,234))
+            menu = pygame.image.load("icons/hamtwo.png")
+            menu = pygame.transform.smoothscale(menu, (40,40))
+            x,y = Calc.screen.get_size()
+            Calc.screen.blit(menu, (x - 50,10))
+            pygame.display.update()
+
+
             for event in pygame.event.get():
                 if event.type == QUIT:
                     Calc.running = False
                 if event.type == VIDEORESIZE:
                     screen = pygame.display.set_mode((event.w, event.h), self.flags)
-
-            Calc.screen.fill(Color(105, 105, 105))
-            pygame.display.update()
         pygame.quit()
-
-
 
 
 if __name__ == '__main__':
