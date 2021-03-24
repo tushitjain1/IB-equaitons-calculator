@@ -28,9 +28,8 @@ class Calc:
         pygame.quit()
 
 
-
-
 if __name__ == '__main__':
-    appid = 'IBStudents.EquationCalculator.CASProject' # Unique string
-    ctypes.windll.shell32.SetCurrentProcessExplicitAppUserModelID(appid)
+    if sys.platform.startswith("win32"):
+        appid = 'IBStudents.EquationCalculator.CASProject' # Unique string
+        ctypes.windll.shell32.SetCurrentProcessExplicitAppUserModelID(appid)
     Calc().run()
