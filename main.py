@@ -20,18 +20,21 @@ class Calc:
     def run(self):
         while Calc.running:
             Calc.screen.fill(Color(214,240,234))
-            menu = pygame.image.load("icons/hamtwo.png")
-            menu = pygame.transform.smoothscale(menu, (40,40))
             x,y = Calc.screen.get_size()
+            area = pygame.Rect(x - 51, 12, 40, 40)
+            menu = pygame.image.load("icons/settings.png")
+            menu = pygame.transform.smoothscale(menu, (40,40))
             Calc.screen.blit(menu, (x - 50,10))
             pygame.display.update()
-
-
             for event in pygame.event.get():
                 if event.type == QUIT:
                     Calc.running = False
                 if event.type == VIDEORESIZE:
                     screen = pygame.display.set_mode((event.w, event.h), self.flags)
+                mousex, mousey = pygame.mouse.get_pos()
+                if event.type == MOUSEBUTTONDOWN:
+                    if area.collidepoint(event.pos):
+                        pass                                             #screen for the settings appear
         pygame.quit()
 
 
