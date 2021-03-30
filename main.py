@@ -18,10 +18,10 @@ class Calc:
         pygame.display.set_icon(icon)
         Calc.screen.fill(Color(214, 240, 234))
 
-
         Calc.running = True
 
     def run(self):
+        settings = pygame.Surface((0, 0))
         while Calc.running:
             # Calc.screen.fill(Color(214, 240, 234))
             x, y = Calc.screen.get_size()
@@ -42,9 +42,11 @@ class Calc:
                     Calc.screen.fill(Color(214, 240, 234))
                 mousex, mousey = pygame.mouse.get_pos()
                 if event.type == MOUSEBUTTONDOWN:
+                    clickx, clicky = event.pos
                     if area.collidepoint(event.pos):
-                        self.settings()
-                    else:
+                        settings = self.settings()
+                        # print(Calc.screen.get_size())
+                    elif (pygame.Rect(0, 0, x, y).collidepoint(event.pos)) and (not settings.get_rect().collidepoint((clickx-70, clicky-85))):
                         Calc.screen.fill(Color(214, 240, 234))
                     if area_two.collidepoint(event.pos):
                         pass
@@ -60,7 +62,7 @@ class Calc:
         textRect = textSurf.get_rect()
         textRect.top = top
         textRect.left = left
-        top += pygame.font.Font.get_linesize(self.TITLEFONT)
+        top += pygame.font.Font.get_linesize(self.TITLEFONT)+15
         settings.blit(textSurf, textRect)
         options = ['Small', 'Medium', 'Large']
         for i in range(len(options)):
@@ -68,13 +70,14 @@ class Calc:
             textRect = textSurf.get_rect()
             textRect.top = top
             textRect.left = left
-            top += pygame.font.Font.get_linesize(self.BASICFONT)
+            top += pygame.font.Font.get_linesize(self.TITLEFONT)-10
             settings.blit(textSurf, textRect)
         popupRect = settings.get_rect()
         popupRect.centerx = w/2
         popupRect.centery = h/2
         Calc.screen.blit(settings, popupRect)
         pygame.display.update()
+        return settings
 
 
 if __name__ == '__main__':
