@@ -16,8 +16,7 @@ class Calc:
         pygame.display.set_caption("IB equations calculator")
         icon = pygame.image.load("./icons/calc.png")
         pygame.display.set_icon(icon)
-        Calc.screen.fill(Color(214, 240, 234))
-
+        Calc.screen.fill(Color(169, 192, 226))
         Calc.running = True
 
     def run(self):
@@ -39,44 +38,47 @@ class Calc:
                     Calc.running = False
                 if event.type == VIDEORESIZE:
                     screen = pygame.display.set_mode((event.w, event.h), self.flags)
-                    Calc.screen.fill(Color(214, 240, 234))
+                    Calc.screen.fill(Color(169, 192, 226))
                 mousex, mousey = pygame.mouse.get_pos()
                 if event.type == MOUSEBUTTONDOWN:
                     clickx, clicky = event.pos
                     if area.collidepoint(event.pos):
                         settings = self.settings()
                         # print(Calc.screen.get_size())
-                    elif (pygame.Rect(0, 0, x, y).collidepoint(event.pos)) and (not settings.get_rect().collidepoint((clickx-70, clicky-85))):
-                        Calc.screen.fill(Color(214, 240, 234))
+                    elif (pygame.Rect(0, 0, x, y).collidepoint(event.pos)) and (not settings.collidepoint((clickx, clicky))):
+                        Calc.screen.fill(Color(169, 192, 226))
                     if area_two.collidepoint(event.pos):
                         pass
 
     def settings(self):
         w, h = pygame.display.get_surface().get_size()
-        settings = pygame.Surface((w-140, h-170))
-        settings.fill(Color(20, 201, 199))
-        # Calc.screen.blit(settings, (70, 85))
-        top = 70
-        left = 85
-        textSurf = self.TITLEFONT.render("Size", 1, Color('black'))
-        textRect = textSurf.get_rect()
-        textRect.top = top
-        textRect.left = left
-        top += pygame.font.Font.get_linesize(self.TITLEFONT)+15
-        settings.blit(textSurf, textRect)
-        options = ['Small', 'Medium', 'Large']
-        for i in range(len(options)):
-            textSurf = self.BASICFONT.render(options[i], 1, Color('black'))
-            textRect = textSurf.get_rect()
-            textRect.top = top
-            textRect.left = left
-            top += pygame.font.Font.get_linesize(self.TITLEFONT)-10
-            settings.blit(textSurf, textRect)
-        popupRect = settings.get_rect()
-        popupRect.centerx = w/2
-        popupRect.centery = h/2
-        Calc.screen.blit(settings, popupRect)
-        pygame.display.update()
+        settings = pygame.Rect(85, 70, w-140, h-170)
+        pygame.draw.rect(Calc.screen, Color(214, 240, 234), settings, 0)
+        # w, h = pygame.display.get_surface().get_size()
+        # settings = pygame.Surface((w-140, h-170))
+        # settings.fill(Color(20, 201, 199))
+        # # Calc.screen.blit(settings, (70, 85))
+        # top = 70
+        # left = 85
+        # textSurf = self.TITLEFONT.render("Size", 1, Color('black'))
+        # textRect = textSurf.get_rect()
+        # textRect.top = top
+        # textRect.left = left
+        # top += pygame.font.Font.get_linesize(self.TITLEFONT)+15
+        # settings.blit(textSurf, textRect)
+        # options = ['Small', 'Medium', 'Large']
+        # for i in range(len(options)):
+        #     textSurf = self.BASICFONT.render(options[i], 1, Color('black'))
+        #     textRect = textSurf.get_rect()
+        #     textRect.top = top
+        #     textRect.left = left
+        #     top += pygame.font.Font.get_linesize(self.TITLEFONT)-10
+        #     settings.blit(textSurf, textRect)
+        # popupRect = settings.get_rect()
+        # popupRect.centerx = w/2
+        # popupRect.centery = h/2
+        # Calc.screen.blit(settings, popupRect)
+        # pygame.display.update()
         return settings
 
 
