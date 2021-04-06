@@ -27,7 +27,6 @@ TITLE2FONT = pygame.font.SysFont('notosans', 40)
 
 # Other variables
 FPS = 60
-SHOW_SETTINGS = False
 
 # Load images
 ICON = pygame.image.load(os.path.join('icons', 'calc.png'))
@@ -41,7 +40,7 @@ pygame.display.set_icon(ICON)
 
 
 def main():
-    global SHOW_SETTINGS
+    show_settings = False
     clock = pygame.time.Clock()
     run = True
     drawWindow()
@@ -55,20 +54,21 @@ def main():
             if event.type == MOUSEBUTTONDOWN:
                 clickx, clicky = event.pos
                 # If click on a rect exactly the same as SETTINGS icon, draw the settings menu
-                if pygame.Rect(x-50, 10, 50, 50).collidepoint(event.pos) and not SHOW_SETTINGS:
+                if pygame.Rect(x-50, 10, 50, 50).collidepoint(event.pos) and not show_settings:
                     rect1, rect2, rect3 = drawSettings(x, y)
+                    show_settings = True
                 # Elif the click was in a rectangle equal to the settings menu...
-                elif pygame.Rect(70, 85, x-140, y-170).collidepoint((clickx, clicky)) and SHOW_SETTINGS:
-                    if rect1.collidepoint(event.pos) and (x, y) != SMALL:
-                        resize(SMALL)
-                    if rect2.collidepoint(event.pos) and (x, y) != MEDIUM:
-                        resize(MEDIUM)
-                    if rect3.collidepoint(event.pos) and (x, y) != LARGE:
-                        resize(LARGE)
-                # Elif the click was within the window but outside of a rectangle equal to the settings menu, redraw the normal window
-                elif pygame.Rect(0, 0, x, y).collidepoint(event.pos) and SHOW_SETTINGS:
-                    drawWindow()
-                    SHOW_SETTINGS = False
+                elif pygame.Rect(70, 85, x-140, y-170).collidepoint((clickx, clicky)) and show_settings:
+                        if rect1.collidepoint(event.pos) and (x, y) != SMALL:
+                            resize(SMALL)
+                        if rect2.collidepoint(event.pos) and (x, y) != MEDIUM:
+                            resize(MEDIUM)
+                        if rect3.collidepoint(event.pos) and (x, y) != LARGE:
+                            resize(LARGE)
+                    # Elif the click was within the window but outside of a rectangle equal to the settings menu, redraw the normal window
+                elif pygame.Rect(0, 0, x, y).collidepoint(event.pos) and show_settings:
+                        drawWindow()
+                        show_settings = False
                 # If click on a rect exactly the same as HAMTHREE icon, draw equations menu
                 if pygame.Rect(20, 10, 50, 50).collidepoint(event.pos):
                     print("HamThree")
@@ -85,8 +85,6 @@ def drawWindow():
 
 # Draw the settings window
 def drawSettings(x, y):
-    global SHOW_SETTINGS
-    SHOW_SETTINGS = True
     settings = pygame.Rect(70, 85, x-140, y-170)
     pygame.draw.rect(WIN, SETTINGS_COLOUR, settings, 0)
 
@@ -116,6 +114,7 @@ def drawSettings(x, y):
 def drawShowSelect(y):
     pygame.draw.circle(WIN, SELECTED_COLOUR, (100, y + 2), 10)
 
+# Changes the global variables to the new desired size
 def resize(size):
     global WIDTH, HEIGHT, WIN
     WIDTH, HEIGHT = size
