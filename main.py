@@ -20,7 +20,7 @@ class Calc:
         Calc.running = True
 
     def run(self):
-        settings = pygame.Surface((0, 0))
+        settings = pygame.Rect(0, 0, 0, 0)
         while Calc.running:
             # Calc.screen.fill(Color(214, 240, 234))
             x, y = Calc.screen.get_size()
@@ -41,6 +41,9 @@ class Calc:
                     Calc.screen.fill(Color(169, 192, 226))
                 mousex, mousey = pygame.mouse.get_pos()
                 if event.type == MOUSEBUTTONDOWN:
+
+                    print((x, y))
+
                     clickx, clicky = event.pos
                     if area.collidepoint(event.pos):
                         settings = self.settings()
@@ -52,7 +55,7 @@ class Calc:
 
     def settings(self):
         w, h = pygame.display.get_surface().get_size()
-        settings = pygame.Rect(85, 70, w-140, h-170)
+        settings = pygame.Rect(70, 85, w-140, h-170)
         pygame.draw.rect(Calc.screen, Color(214, 240, 234), settings, 0)
         # w, h = pygame.display.get_surface().get_size()
         # settings = pygame.Surface((w-140, h-170))
