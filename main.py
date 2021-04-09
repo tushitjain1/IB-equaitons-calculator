@@ -8,7 +8,7 @@ pygame.font.init()
 # Default window sizes # Other possible sizes? idrk yet
 SMALL = (880, 530)
 MEDIUM = (1000, 650)
-LARGE = (1280, 760)
+LARGE = (1270, 690)
 WIDTH, HEIGHT = SMALL
 WIN = pygame.display.set_mode((WIDTH, HEIGHT))
 # Window title
@@ -19,6 +19,8 @@ MAIN_COLOUR = (133,220,186)
 SETTINGS_COLOUR = (226, 125, 96)
 FRAME_COLOUR = (232,168,124)
 OPTION_COLOUR = (50, 50, 50)
+CALC_BACKROUND_COLOUR = (214,220,240)
+CALC_FRAME_COLOUR = (94, 92, 84)
 
 # Fonts
 BASICFONT = pygame.font.SysFont("Arial", 30)
@@ -43,6 +45,7 @@ def main():
     clock = pygame.time.Clock()
     run = True
     drawWindow()
+    calcui()
     show_settings = False
     while run:
         clock.tick(FPS)
@@ -68,6 +71,7 @@ def main():
                     # Elif the click was within the window but outside of a rectangle equal to the settings menu, redraw the normal window
                 elif pygame.Rect(0, 0, x, y).collidepoint(event.pos) and show_settings:
                         drawWindow()
+                        calcui()
                         show_settings = False
                 # If click on a rect exactly the same as HAMTHREE icon, draw equations menu
                 if pygame.Rect(20, 10, 50, 50).collidepoint(event.pos):
@@ -83,6 +87,15 @@ def drawWindow():
     WIN.blit(SETTINGS, (x-50, 10))
     WIN.blit(HAMTHREE, (20, 10))
     pygame.display.update()
+
+#Draw calculator on main Window
+def calcui():
+    x, y = WIN.get_size()
+    frame = pygame.Rect(x-250, 100, 240, y-110)
+    background = pygame.Rect(x- 245, 105, 230, y-120)
+    pygame.draw.rect(WIN,CALC_FRAME_COLOUR, frame, 0)
+    pygame.draw.rect(WIN, CALC_BACKROUND_COLOUR, background, 0)
+
 
 # Draw the settings window
 def drawSettings(x, y):
@@ -127,6 +140,27 @@ def resize(size):
     WIN = pygame.display.set_mode((WIDTH, HEIGHT))
     drawWindow()
     drawSettings(WIDTH, HEIGHT)
+
+#hanles calculations
+def calculator(string_input):
+    operations = {
+    "+": lambda x, y: x + y,
+    "-": lambda x, y: x - y,
+    "/": lambda x, y: x / y,
+    "*": lambda x, y: x * y,
+    "**": lambda x, y: x**y,
+    "/*": lambda x, y: x**(1/y)}
+    operand = None
+    x, y = ""
+    for c in string_input:
+        if c.isdigit() and operand == None:
+            x = c
+        elif c.isdigit() and operand != None:
+            y = c
+        elif c in operations:
+            operand = c
+    return operations[operand](int(x), int(y))
+
 
 
 if __name__ == '__main__':
