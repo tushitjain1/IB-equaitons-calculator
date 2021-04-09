@@ -6,24 +6,24 @@ import os
 pygame.font.init()
 
 # Default window sizes # Other possible sizes? idrk yet
-SMALL = (1090, 650) # (900, 550)
-MEDIUM = (1440, 800) # (1200, 680)
-LARGE = (2300, 1280) # (1920, 1125)
-WIDTH, HEIGHT = MEDIUM
+SMALL = (880, 530)
+MEDIUM = (1000, 650)
+LARGE = (1280, 760)
+WIDTH, HEIGHT = SMALL
 WIN = pygame.display.set_mode((WIDTH, HEIGHT))
 # Window title
 pygame.display.set_caption("IB equations calculator")
 
 # Colours
-MAIN_COLOUR = (169, 192, 226)
-SETTINGS_COLOUR = (214, 240, 234)
+MAIN_COLOUR = (133,220,186)
+SETTINGS_COLOUR = (226, 125, 96)
+FRAME_COLOUR = (232,168,124)
 OPTION_COLOUR = (50, 50, 50)
-SELECTED_COLOUR = (90, 90, 90)
 
 # Fonts
-BASICFONT = pygame.font.SysFont('notosans', 30)
-TITLEFONT = pygame.font.SysFont('notosans', 50)
-TITLE2FONT = pygame.font.SysFont('notosans', 40)
+BASICFONT = pygame.font.SysFont("Arial", 30)
+TITLEFONT = pygame.font.SysFont("Arial", 50)
+TITLE2FONT = pygame.font.SysFont("Arial", 40)
 
 # Other variables
 FPS = 60
@@ -40,10 +40,10 @@ pygame.display.set_icon(ICON)
 
 
 def main():
-    show_settings = False
     clock = pygame.time.Clock()
     run = True
     drawWindow()
+    show_settings = False
     while run:
         clock.tick(FPS)
         x, y = WIN.get_size()
@@ -72,6 +72,7 @@ def main():
                 # If click on a rect exactly the same as HAMTHREE icon, draw equations menu
                 if pygame.Rect(20, 10, 50, 50).collidepoint(event.pos):
                     print("HamThree")
+                    drawHam()
 
     pygame.quit()
 
@@ -86,33 +87,38 @@ def drawWindow():
 # Draw the settings window
 def drawSettings(x, y):
     settings = pygame.Rect(70, 85, x-140, y-170)
+    frame = pygame.Rect(75, 90, x-150, y-180)
     pygame.draw.rect(WIN, SETTINGS_COLOUR, settings, 0)
+    pygame.draw.rect(WIN, FRAME_COLOUR, frame, 0)
 
-    title = TITLEFONT.render("Settings", 1, (0, 0, 0))
-    WIN.blit(title, (WIDTH/2 - title.get_width()/2, 85))
+    title = TITLEFONT.render("Settings", 1, OPTION_COLOUR)
+    WIN.blit(title, (WIDTH/2 - title.get_width()/2, 90))
 
-    set1 = TITLE2FONT.render("Window Size", 1, (25, 25, 25))
+    set1 = TITLE2FONT.render("Window Size", 1, OPTION_COLOUR)
     WIN.blit(set1, (95, 160))
 
     opt1 = BASICFONT.render("Small", 1, OPTION_COLOUR)
-    drawShowSelect(180 + 1.5*opt1.get_height()) if (x, y) == SMALL else ""
+    if (x, y) == SMALL: drawShowSelect(180 + 1.5*opt1.get_height())
     rect1 = pygame.Rect(120, 180 + opt1.get_height(), opt1.get_width(), opt1.get_height())
     WIN.blit(opt1, (120, 180 + opt1.get_height()))
 
     opt2 = BASICFONT.render("Medium", 1, OPTION_COLOUR)
-    drawShowSelect(180 + 2.5*opt1.get_height()) if (x, y) == MEDIUM else ""
+    if (x, y) == MEDIUM: drawShowSelect(180 + 2.5*opt1.get_height())
     rect2 = pygame.Rect(120, 180 + 2*opt1.get_height(), opt2.get_width(), opt1.get_height())
     WIN.blit(opt2, (120, 180 + 2*opt1.get_height()))
 
     opt3 = BASICFONT.render("Large", 1, OPTION_COLOUR)
-    drawShowSelect(180 + 3.5*opt1.get_height()) if (x, y) == LARGE else ""
+    if (x, y) == LARGE: drawShowSelect(180 + 3.5*opt1.get_height())
     rect3 = pygame.Rect(120, 180 + 3*opt1.get_height(), opt3.get_width(), opt1.get_height())
     WIN.blit(opt3, (120, 180 + 3*opt1.get_height()))
     return rect1, rect2, rect3
 
 # Draws the circle to show which size is selected
 def drawShowSelect(y):
-    pygame.draw.circle(WIN, SELECTED_COLOUR, (100, y + 2), 10)
+    pygame.draw.circle(WIN, OPTION_COLOUR, (100, y + 2), 10)
+
+def drawHam():
+    pass
 
 # Changes the global variables to the new desired size
 def resize(size):
