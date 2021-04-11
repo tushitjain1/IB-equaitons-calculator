@@ -77,9 +77,53 @@ def main():
                 if pygame.Rect(20, 10, 50, 50).collidepoint(event.pos):
                     print("HamThree")
                     drawHam()
+                #If the click was within a rectangle at the same position as the caclulator png
+                if pygame.Rect(x-312, y- 445, 275, 410).collidepoint(event.pos) and not show_settings:
+                    #checking individual buttons
+                    if pygame.Rect(x-280,y-298,40,40).collidepoint(event.pos): #7
+                        print("7")
+                    elif pygame.Rect(x-221,y-298,40,40).collidepoint(event.pos): #8
+                        print("8")
+                    elif pygame.Rect(x-162,y-298,40,40).collidepoint(event.pos): #9
+                        print("9")
+                    elif pygame.Rect(x-103,y-298,40,40).collidepoint(event.pos): #plus
+                        print("plus")
+                    elif pygame.Rect(x-280,y-238,40,40).collidepoint(event.pos): #4
+                        print("4")
+                    elif pygame.Rect(x-221,y-238,40,40).collidepoint(event.pos): #5
+                        print("5")
+                    elif pygame.Rect(x-162,y-238,40,40).collidepoint(event.pos): #6
+                        print("6")
+                    elif pygame.Rect(x-103,y-238,40,40).collidepoint(event.pos): #minus
+                        print("minus")
+                    elif pygame.Rect(x-280,y-178,40,40).collidepoint(event.pos): #1
+                        print("1")
+                    elif pygame.Rect(x-221,y-178,40,40).collidepoint(event.pos): #2
+                        print("2")
+                    elif pygame.Rect(x-162,y-178,40,40).collidepoint(event.pos): #3
+                        print("3")
+                    elif pygame.Rect(x-103,y-178,40,40).collidepoint(event.pos): #times
+                        print("times")
+                    elif pygame.Rect(x-280,y-118,40,40).collidepoint(event.pos): #0
+                        print("0")
+                    elif pygame.Rect(x-221,y-118,40,40).collidepoint(event.pos): #point
+                        print("point")
+                    elif pygame.Rect(x-162,y-118,40,40).collidepoint(event.pos): #equals to
+                        print("equals to")
+                    elif pygame.Rect(x-103,y-118,40,40).collidepoint(event.pos): #divide
+                        print("divide")
+                    elif pygame.Rect(x-281,y-66,30,25).collidepoint(event.pos): #pi
+                        print("pi")
+                    elif pygame.Rect(x-235,y-66,30,25).collidepoint(event.pos): #to the power
+                        print("x to the power y")
+                    elif pygame.Rect(x-187,y-66,30,25).collidepoint(event.pos): #*10^y
+                        print("*10^y")
+                    elif pygame.Rect(x-142,y-66,30,25).collidepoint(event.pos): #open bracket
+                        print("open bracket")
+                    elif pygame.Rect(x-93,y-66,30,25).collidepoint(event.pos): #close bracket
+                        print("close bracket")
 
     pygame.quit()
-
 
 # Draw the main window
 def drawWindow():
@@ -88,6 +132,8 @@ def drawWindow():
     WIN.blit(SETTINGS, (x-50, 10))
     WIN.blit(HAMTHREE, (20, 10))
     WIN.blit(CALCIMAGE, (x-375, y- 500))
+    # test = pygame.Rect(x-92,y-66,30,25)
+    # pygame.draw.rect(WIN, (0,255,0), test, 0)
     pygame.display.update()
 
 # Draw the settings window
