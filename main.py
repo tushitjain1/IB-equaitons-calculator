@@ -36,6 +36,8 @@ SETTINGS = pygame.image.load(os.path.join('icons', 'settings.png'))
 SETTINGS = pygame.transform.smoothscale(SETTINGS, (40, 40))
 HAMTHREE = pygame.image.load(os.path.join('icons', 'hamthree.svg'))
 HAMTHREE = pygame.transform.smoothscale(HAMTHREE, (50, 50))
+CALCIMAGE = pygame.image.load(os.path.join('icons', 'calculatorart-01.png'))
+CALCIMAGE = pygame.transform.smoothscale(CALCIMAGE, (390,500))
 
 # Set window icon
 pygame.display.set_icon(ICON)
@@ -45,7 +47,6 @@ def main():
     clock = pygame.time.Clock()
     run = True
     drawWindow()
-    calcui()
     show_settings = False
     while run:
         clock.tick(FPS)
@@ -71,7 +72,6 @@ def main():
                     # Elif the click was within the window but outside of a rectangle equal to the settings menu, redraw the normal window
                 elif pygame.Rect(0, 0, x, y).collidepoint(event.pos) and show_settings:
                         drawWindow()
-                        calcui()
                         show_settings = False
                 # If click on a rect exactly the same as HAMTHREE icon, draw equations menu
                 if pygame.Rect(20, 10, 50, 50).collidepoint(event.pos):
@@ -80,22 +80,15 @@ def main():
 
     pygame.quit()
 
+
 # Draw the main window
 def drawWindow():
     x, y = WIN.get_size()
     WIN.fill(MAIN_COLOUR)
     WIN.blit(SETTINGS, (x-50, 10))
     WIN.blit(HAMTHREE, (20, 10))
+    WIN.blit(CALCIMAGE, (x-375, y- 500))
     pygame.display.update()
-
-#Draw calculator on main Window
-def calcui():
-    x, y = WIN.get_size()
-    frame = pygame.Rect(x-250, 100, 240, y-110)
-    background = pygame.Rect(x- 245, 105, 230, y-120)
-    pygame.draw.rect(WIN,CALC_FRAME_COLOUR, frame, 0)
-    pygame.draw.rect(WIN, CALC_BACKROUND_COLOUR, background, 0)
-
 
 # Draw the settings window
 def drawSettings(x, y):
