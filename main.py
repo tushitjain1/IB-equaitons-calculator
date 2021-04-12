@@ -125,7 +125,7 @@ def main():
 
     pygame.quit()
 
-# Draw the main window
+# Draw the main windows
 def drawWindow():
     x, y = WIN.get_size()
     WIN.fill(MAIN_COLOUR)
