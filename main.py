@@ -3,6 +3,7 @@ from pygame.locals import *
 import sys
 import ctypes
 import os
+import math
 pygame.font.init()
 
 # Default window sizes # Other possible sizes? idrk yet
@@ -26,6 +27,7 @@ CALC_FRAME_COLOUR = (94, 92, 84)
 BASICFONT = pygame.font.SysFont("Arial", 30)
 TITLEFONT = pygame.font.SysFont("Arial", 50)
 TITLE2FONT = pygame.font.SysFont("Arial", 40)
+TITLEFONT2 = pygame.font.SysFont("Arial", 15)
 
 # Other variables
 FPS = 60
@@ -48,6 +50,7 @@ def main():
     run = True
     drawWindow()
     show_settings = False
+    numericString = ""
     while run:
         clock.tick(FPS)
         x, y = WIN.get_size()
@@ -81,47 +84,50 @@ def main():
                 if pygame.Rect(x-312, y- 445, 275, 410).collidepoint(event.pos) and not show_settings:
                     #checking individual buttons
                     if pygame.Rect(x-280,y-298,40,40).collidepoint(event.pos): #7
-                        print("7")
+                        numericString += "7"
                     elif pygame.Rect(x-221,y-298,40,40).collidepoint(event.pos): #8
-                        print("8")
+                        numericString += "8"
                     elif pygame.Rect(x-162,y-298,40,40).collidepoint(event.pos): #9
-                        print("9")
+                        numericString += "9"
                     elif pygame.Rect(x-103,y-298,40,40).collidepoint(event.pos): #plus
-                        print("plus")
+                        numericString += "+"
                     elif pygame.Rect(x-280,y-238,40,40).collidepoint(event.pos): #4
-                        print("4")
+                        numericString += "4"
                     elif pygame.Rect(x-221,y-238,40,40).collidepoint(event.pos): #5
-                        print("5")
+                        numericString += "5"
                     elif pygame.Rect(x-162,y-238,40,40).collidepoint(event.pos): #6
-                        print("6")
+                        numericString += "6"
                     elif pygame.Rect(x-103,y-238,40,40).collidepoint(event.pos): #minus
-                        print("minus")
+                        numericString += "-"
                     elif pygame.Rect(x-280,y-178,40,40).collidepoint(event.pos): #1
-                        print("1")
+                        numericString += "1"
                     elif pygame.Rect(x-221,y-178,40,40).collidepoint(event.pos): #2
-                        print("2")
+                        numericString += "2"
                     elif pygame.Rect(x-162,y-178,40,40).collidepoint(event.pos): #3
-                        print("3")
+                        numericString += "3"
                     elif pygame.Rect(x-103,y-178,40,40).collidepoint(event.pos): #times
-                        print("times")
+                        numericString += "*"
                     elif pygame.Rect(x-280,y-118,40,40).collidepoint(event.pos): #0
-                        print("0")
+                        numericString += "0"
                     elif pygame.Rect(x-221,y-118,40,40).collidepoint(event.pos): #point
-                        print("point")
+                        numericString += "."
                     elif pygame.Rect(x-162,y-118,40,40).collidepoint(event.pos): #equals to
-                        print("equals to")
+                        print(calculator(numericString))
+                        numericString = ""
                     elif pygame.Rect(x-103,y-118,40,40).collidepoint(event.pos): #divide
-                        print("divide")
+                        numericString += "/"
                     elif pygame.Rect(x-281,y-66,30,25).collidepoint(event.pos): #pi
-                        print("pi")
+                        numericString += str(math.pi)
                     elif pygame.Rect(x-235,y-66,30,25).collidepoint(event.pos): #to the power
-                        print("x to the power y")
+                        numericString += "**"
                     elif pygame.Rect(x-187,y-66,30,25).collidepoint(event.pos): #*10^y
-                        print("*10^y")
+                        numericString += "*10**"
                     elif pygame.Rect(x-142,y-66,30,25).collidepoint(event.pos): #open bracket
-                        print("open bracket")
+                        numericString += "("
                     elif pygame.Rect(x-93,y-66,30,25).collidepoint(event.pos): #close bracket
-                        print("close bracket")
+                        numericString += ")"
+                    elif pygame.Rect(x-274,y-414,32,22).collidepoint(event.pos): #close bracket
+                        numericString = ""
 
     pygame.quit()
 
@@ -132,8 +138,8 @@ def drawWindow():
     WIN.blit(SETTINGS, (x-50, 10))
     WIN.blit(HAMTHREE, (20, 10))
     WIN.blit(CALCIMAGE, (x-375, y- 500))
-    # test = pygame.Rect(x-92,y-66,30,25)
-    # pygame.draw.rect(WIN, (0,255,0), test, 0)
+    clear = TITLEFONT2.render("Clear",1,(0,0,0))
+    WIN.blit(clear,(x-274,y-414))
     pygame.display.update()
 
 # Draw the settings window
@@ -182,23 +188,9 @@ def resize(size):
 
 #hanles calculations
 def calculator(string_input):
-    operations = {
-    "+": lambda x, y: x + y,
-    "-": lambda x, y: x - y,
-    "/": lambda x, y: x / y,
-    "*": lambda x, y: x * y,
-    "**": lambda x, y: x**y,
-    "/*": lambda x, y: x**(1/y)}
-    operand = None
-    x, y = ""
-    for c in string_input:
-        if c.isdigit() and operand == None:
-            x = c
-        elif c.isdigit() and operand != None:
-            y = c
-        elif c in operations:
-            operand = c
-    return operations[operand](int(x), int(y))
+    if string_input == "":
+        return 0
+    return eval(string_input)
 
 
 
