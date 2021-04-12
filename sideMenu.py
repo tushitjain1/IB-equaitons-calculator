@@ -21,13 +21,13 @@ class SideMenu():
         if self.draw_menu:
             if self.right < self.rect.x:
                 self.right += 5
-            self.drawRects(surface)
-            # for i, text in enumerate(self.options):
-            #     rect = self.rect.copy()
-            #     rect.y += (i+1) * self.rect.height
-                # pygame.draw.rect(surface, self.option_colour[1 if i == self.active_option else 0], rect, 0)
-                # msg = self.font.render(text, 1, (0, 0, 0))
-                # surface.blit(msg, msg.get_rect(center = rect.center))
+            for i, text in enumerate(self.options):
+                rect = self.rect.copy()
+                rect.y += (i) * self.rect.height
+                rect.x = self.right
+                pygame.draw.rect(surface, self.option_colour[1 if i == self.active_option else 0], rect, 0)
+                msg = self.font.render(text, 1, (0, 0, 0))
+                surface.blit(msg, msg.get_rect(center = rect.center))
 
     def update(self, event_list, scroll_y):
         mpos = pygame.mouse.get_pos()
@@ -53,15 +53,6 @@ class SideMenu():
                     pygame.event.post(pygame.event.Event(REDRAW_WINDOW))
                     return self.active_option
         return -1
-
-    def drawRects(self, surface):
-        for i, text in enumerate(self.options):
-            rect = self.rect.copy()
-            rect.y += (i) * self.rect.height
-            rect.x = self.right
-            pygame.draw.rect(surface, self.option_colour[1 if i == self.active_option else 0], rect, 0)
-            msg = self.font.render(text, 1, (0, 0, 0))
-            surface.blit(msg, msg.get_rect(center = rect.center))
 
 REDRAW_WINDOW = pygame.USEREVENT + 1
 
@@ -120,8 +111,6 @@ if __name__ == "__main__":
             opt = list1.options[selected_option]
             print(opt)
 
-        # list1.draw(screen)
-        # drawWindow()
         list1.draw(menuSurf)
         screen.set_clip((0, main_pos[1] + HAMTHREE.get_height(), x, y-(main_pos[1] + HAMTHREE.get_height())))
         screen.blit(menuSurf, menuSurf.get_rect(top=scroll_y))
