@@ -1,4 +1,7 @@
 import pygame
+import sys
+import ctypes
+
 
 class SideMenu():
 
@@ -55,6 +58,10 @@ class SideMenu():
         return -1
 
 REDRAW_WINDOW = pygame.USEREVENT + 1
+
+if sys.platform.startswith("win32"):
+    appid = u'IBStudents.CAS.Project.EquationCalculator' # Unique string
+    ctypes.windll.shell32.SetCurrentProcessExplicitAppUserModelID(appid)
 
 
 if __name__ == "__main__":

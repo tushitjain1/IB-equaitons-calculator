@@ -204,9 +204,6 @@ def drawSettings(x, y):
 def drawShowSelect(y):
     pygame.draw.circle(WIN, OPTION_COLOUR, (100, y + 2), 10)
 
-def drawHam():
-    pass
-
 # Changes the global variables to the new desired size
 def resize(size):
     global WIDTH, HEIGHT, WIN, hamSurf
@@ -223,11 +220,10 @@ def calculator(string_input):
     return eval(string_input)
 
 
+# For Windows operating system, make a unique appid in order to show icon in taskbar
+if sys.platform.startswith("win32"):
+    appid = u'IBStudents.CAS.Project.EquationCalculator' # Unique string
+    ctypes.windll.shell32.SetCurrentProcessExplicitAppUserModelID(appid)
 
 if __name__ == '__main__':
-    # For Windows operating system, make a unique appid in order to show icon in taskbar
-    if sys.platform.startswith("win32"):
-        appid = 'IBStudents.EquationCalculator.CASProject' # Unique string
-        ctypes.windll.shell32.SetCurrentProcessExplicitAppUserModelID(appid)
-
     main()
