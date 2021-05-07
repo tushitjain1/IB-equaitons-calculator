@@ -89,61 +89,61 @@ def main():
                             resize(MEDIUM)
                         if rect3.collidepoint(event.pos) and (x, y) != LARGE:
                             resize(LARGE)
-                    # Elif the click was within the window but outside of a rectangle equal to the settings menu, redraw the normal window
+                # Elif click was within the window but outside of a rectangle equal to the settings menu: redraw main
                 elif pygame.Rect(0, 0, x, y).collidepoint(event.pos) and show_settings:
                         drawWindow()
                         show_settings = False
                         hamSurf.set_alpha(100)
                 # If click on a rect exactly the same as HAMTHREE icon, draw equations menu
                 if event.button == 4 and ham.draw_menu: scroll_y = min(scroll_y + 15, 50)
-                if event.button == 5 and ham.draw_menu: scroll_y = max(scroll_y - 15, -(option_rect[3]*len(opts)) + (y-(ham_pos[1] + HAMTHREE.get_height())))
-                #If the click was within a rectangle at the same position as the caclulator png
+                if event.button == 5 and ham.draw_menu: scroll_y = max(scroll_y - 15, - (option_rect[3]*len(opts)) + (y-(ham_pos[1] + HAMTHREE.get_height())))
+                # If the click was within a rectangle at the same position as the caclulator png
                 if pygame.Rect(x-312, y-445, 275, 410).collidepoint(event.pos) and not show_settings:
-                    #checking individual buttons
-                    if pygame.Rect(x-280, y-298, 40, 40).collidepoint(event.pos): #7
+                    # Checking individual buttons
+                    if pygame.Rect(x-280, y-298, 40, 40).collidepoint(event.pos):  # 7
                         numericString += "7"
-                    elif pygame.Rect(x-221, y-298, 40, 40).collidepoint(event.pos): #8
+                    elif pygame.Rect(x-221, y-298, 40, 40).collidepoint(event.pos):  # 8
                         numericString += "8"
-                    elif pygame.Rect(x-162, y-298, 40, 40).collidepoint(event.pos): #9
+                    elif pygame.Rect(x-162, y-298, 40, 40).collidepoint(event.pos):  # 9
                         numericString += "9"
-                    elif pygame.Rect(x-103, y-298, 40, 40).collidepoint(event.pos): #plus
+                    elif pygame.Rect(x-103, y-298, 40, 40).collidepoint(event.pos):  # Plus
                         numericString += "+"
-                    elif pygame.Rect(x-280, y-238, 40, 40).collidepoint(event.pos): #4
+                    elif pygame.Rect(x-280, y-238, 40, 40).collidepoint(event.pos):  # 4
                         numericString += "4"
-                    elif pygame.Rect(x-221, y-238, 40, 40).collidepoint(event.pos): #5
+                    elif pygame.Rect(x-221, y-238, 40, 40).collidepoint(event.pos):  # 5
                         numericString += "5"
-                    elif pygame.Rect(x-162, y-238, 40, 40).collidepoint(event.pos): #6
+                    elif pygame.Rect(x-162, y-238, 40, 40).collidepoint(event.pos):  # 6
                         numericString += "6"
-                    elif pygame.Rect(x-103, y-238, 40, 40).collidepoint(event.pos): #minus
+                    elif pygame.Rect(x-103, y-238, 40, 40).collidepoint(event.pos):  # Minus
                         numericString += "-"
-                    elif pygame.Rect(x-280, y-178, 40, 40).collidepoint(event.pos): #1
+                    elif pygame.Rect(x-280, y-178, 40, 40).collidepoint(event.pos):  # 1
                         numericString += "1"
-                    elif pygame.Rect(x-221, y-178, 40, 40).collidepoint(event.pos): #2
+                    elif pygame.Rect(x-221, y-178, 40, 40).collidepoint(event.pos):  # 2
                         numericString += "2"
-                    elif pygame.Rect(x-162, y-178, 40, 40).collidepoint(event.pos): #3
+                    elif pygame.Rect(x-162, y-178, 40, 40).collidepoint(event.pos):  # 3
                         numericString += "3"
-                    elif pygame.Rect(x-103, y-178, 40, 40).collidepoint(event.pos): #times
+                    elif pygame.Rect(x-103, y-178, 40, 40).collidepoint(event.pos):  # Times
                         numericString += "*"
-                    elif pygame.Rect(x-280, y-118, 40, 40).collidepoint(event.pos): #0
+                    elif pygame.Rect(x-280, y-118, 40, 40).collidepoint(event.pos):  # 0
                         numericString += "0"
-                    elif pygame.Rect(x-221, y-118, 40, 40).collidepoint(event.pos): #point
+                    elif pygame.Rect(x-221, y-118, 40, 40).collidepoint(event.pos):  # Point
                         numericString += "."
-                    elif pygame.Rect(x-162, y-118, 40, 40).collidepoint(event.pos): #equals to
+                    elif pygame.Rect(x-162, y-118, 40, 40).collidepoint(event.pos):  # Equals to
                         print(calculator(numericString))
                         numericString = ""
-                    elif pygame.Rect(x-103, y-118, 40, 40).collidepoint(event.pos): #divide
+                    elif pygame.Rect(x-103, y-118, 40, 40).collidepoint(event.pos):  # Divide
                         numericString += "/"
-                    elif pygame.Rect(x-281, y-66, 30, 25).collidepoint(event.pos): #pi
+                    elif pygame.Rect(x-281, y-66, 30, 25).collidepoint(event.pos):  # Pi
                         numericString += str(math.pi)
-                    elif pygame.Rect(x-235, y-66, 30, 25).collidepoint(event.pos): #to the power
+                    elif pygame.Rect(x-235, y-66, 30, 25).collidepoint(event.pos):  # To the power
                         numericString += "**"
-                    elif pygame.Rect(x-187, y-66, 30, 25).collidepoint(event.pos): #*10^y
+                    elif pygame.Rect(x-187, y-66, 30, 25).collidepoint(event.pos):  # *10^y
                         numericString += "*10**"
-                    elif pygame.Rect(x-142, y-66, 30, 25).collidepoint(event.pos): #open bracket
+                    elif pygame.Rect(x-142, y-66, 30, 25).collidepoint(event.pos):  # Open bracket
                         numericString += "("
-                    elif pygame.Rect(x-93, y-66, 30, 25).collidepoint(event.pos): #close bracket
+                    elif pygame.Rect(x-93, y-66, 30, 25).collidepoint(event.pos):  # Close bracket
                         numericString += ")"
-                    elif pygame.Rect(x-274, y-414, 32, 22).collidepoint(event.pos): #clear
+                    elif pygame.Rect(x-274, y-414, 32, 22).collidepoint(event.pos):  # Clear
                         numericString = ""
 
             if event.type == REDRAW_WINDOW: drawWindow()
@@ -165,7 +165,7 @@ def drawWindow():
     hamSurf.fill(MAIN_COLOUR)
     WIN.blit(SETTINGS, (x-50, 10))
     WIN.blit(HAMTHREE, (20, 10))
-    WIN.blit(CALCIMAGE, (x-375, y- 500))
+    WIN.blit(CALCIMAGE, (x-375, y-500))
     clear = TITLEFONT2.render("Clear", 1, (0, 0, 0))
     WIN.blit(clear, (x-274, y-414))
     pygame.display.update()
@@ -213,11 +213,25 @@ def resize(size):
     drawWindow()
     drawSettings(WIDTH, HEIGHT)
 
-#hanles calculations
+# Handles calculations
 def calculator(string_input):
+    symbs = ["+", "-", "/", "*"]
     if string_input == "":
         return 0
-    return eval(string_input)
+    i = 1
+    while i < len(string_input):
+        if string_input[i] == "(" and string_input[i-1] not in symbs:
+            string_input = string_input[0:i] + "*" + string_input[i:]
+        if string_input[i] == ")" and string_input[i+1] not in symbs:
+            string_input = string_input[0:i+1] + "*" + string_input[i+1:]
+        i += 1
+    try:
+        answer = eval(string_input)
+    except SyntaxError:
+        return "Syntax Error! Maybe incomplete parentheses."
+    # except Exception as e:
+    #     return e
+    return answer
 
 
 # For Windows operating system, make a unique appid in order to show icon in taskbar
