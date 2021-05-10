@@ -219,7 +219,7 @@ def calculator(string_input):
     if string_input == "":
         return 0
     i = 1
-    while i < len(string_input):
+    while i < len(string_input) - 1:
         if string_input[i] == "(" and string_input[i-1] not in symbs:
             string_input = string_input[0:i] + "*" + string_input[i:]
         if string_input[i] == ")" and string_input[i+1] not in symbs:
