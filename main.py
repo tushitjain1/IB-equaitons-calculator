@@ -21,8 +21,7 @@ MAIN_COLOUR = (133, 220, 186)
 SETTINGS_COLOUR = (226, 125, 96)
 FRAME_COLOUR = (232, 168, 124)
 OPTION_COLOUR = (50, 50, 50)
-CALC_BACKROUND_COLOUR = (214, 220, 240)
-CALC_FRAME_COLOUR = (94, 92, 84)
+CALC_SCREEN = (228, 230, 230)
 COLOR_LIST_INACTIVE = (255, 100, 100)
 COLOR_LIST_ACTIVE = (255, 150, 150)
 
@@ -31,6 +30,8 @@ BASICFONT = pygame.font.SysFont("Arial", 30)
 TITLEFONT = pygame.font.SysFont("Arial", 50)
 TITLE2FONT = pygame.font.SysFont("Arial", 40)
 TITLEFONT2 = pygame.font.SysFont("Arial", 15)
+CALCFONT = pygame.font.SysFont("Arial", 35)
+# print(CALCFONT.render("test", 1, (0, 0, 0)).get_height())
 
 # Other variables
 FPS = 120
@@ -59,6 +60,9 @@ ham = SideMenu(
     HAMTHREE, ham_pos, opts)
 hamSurf = pygame.Surface((option_rect[2]+20, option_rect[3]*len(opts) + HEIGHT/2))
 
+calcText = pygame.Surface((200, 41))
+calcText.fill(CALC_SCREEN)
+
 
 def main():
     clock = pygame.time.Clock()
@@ -66,6 +70,7 @@ def main():
     scroll_y = HAMTHREE.get_height()
     drawWindow()
     numericString = ""
+    num = ""
     show_settings = False
     while run:
         clock.tick(FPS)
@@ -75,8 +80,14 @@ def main():
         for event in event_list:
             if event.type == pygame.QUIT:
                 run = False
+
+            handleCalcText(num, calcText)
+            if not show_settings:
+                WIN.blit(calcText, (x-275, y-370))
+
             if event.type == MOUSEBUTTONDOWN:
                 clickx, clicky = event.pos
+                # print(clickx, clicky)
                 # If click on a rect exactly the same as SETTINGS icon, draw the settings menu
                 if pygame.Rect(x-50, 10, 50, 50).collidepoint(event.pos) and not show_settings:
                     rect1, rect2, rect3 = drawSettings(x, y)
@@ -102,49 +113,70 @@ def main():
                     # Checking individual buttons
                     if pygame.Rect(x-280, y-298, 40, 40).collidepoint(event.pos):  # 7
                         numericString += "7"
+                        num += "7"
                     elif pygame.Rect(x-221, y-298, 40, 40).collidepoint(event.pos):  # 8
                         numericString += "8"
+                        num += "8"
                     elif pygame.Rect(x-162, y-298, 40, 40).collidepoint(event.pos):  # 9
                         numericString += "9"
+                        num += "9"
                     elif pygame.Rect(x-103, y-298, 40, 40).collidepoint(event.pos):  # Plus
                         numericString += "+"
+                        num += "+"
                     elif pygame.Rect(x-280, y-238, 40, 40).collidepoint(event.pos):  # 4
                         numericString += "4"
+                        num += "4"
                     elif pygame.Rect(x-221, y-238, 40, 40).collidepoint(event.pos):  # 5
                         numericString += "5"
+                        num += "5"
                     elif pygame.Rect(x-162, y-238, 40, 40).collidepoint(event.pos):  # 6
                         numericString += "6"
+                        num += "6"
                     elif pygame.Rect(x-103, y-238, 40, 40).collidepoint(event.pos):  # Minus
                         numericString += "-"
+                        num += "-"
                     elif pygame.Rect(x-280, y-178, 40, 40).collidepoint(event.pos):  # 1
                         numericString += "1"
+                        num += "1"
                     elif pygame.Rect(x-221, y-178, 40, 40).collidepoint(event.pos):  # 2
                         numericString += "2"
+                        num += "2"
                     elif pygame.Rect(x-162, y-178, 40, 40).collidepoint(event.pos):  # 3
                         numericString += "3"
+                        num += "3"
                     elif pygame.Rect(x-103, y-178, 40, 40).collidepoint(event.pos):  # Times
                         numericString += "*"
+                        num += "×"
                     elif pygame.Rect(x-280, y-118, 40, 40).collidepoint(event.pos):  # 0
                         numericString += "0"
+                        num += "0"
                     elif pygame.Rect(x-221, y-118, 40, 40).collidepoint(event.pos):  # Point
                         numericString += "."
+                        num += "."
                     elif pygame.Rect(x-162, y-118, 40, 40).collidepoint(event.pos):  # Equals to
-                        print(calculator(numericString))
+                        num = str(calculator(numericString))
+                        print(num)
                         numericString = ""
                     elif pygame.Rect(x-103, y-118, 40, 40).collidepoint(event.pos):  # Divide
                         numericString += "/"
+                        num += "/"
                     elif pygame.Rect(x-281, y-66, 30, 25).collidepoint(event.pos):  # Pi
                         numericString += str(math.pi)
                     elif pygame.Rect(x-235, y-66, 30, 25).collidepoint(event.pos):  # To the power
                         numericString += "**"
+                        num += "^"
                     elif pygame.Rect(x-187, y-66, 30, 25).collidepoint(event.pos):  # *10^y
                         numericString += "*10**"
+                        num += "x10^"
                     elif pygame.Rect(x-142, y-66, 30, 25).collidepoint(event.pos):  # Open bracket
                         numericString += "("
+                        num += "("
                     elif pygame.Rect(x-93, y-66, 30, 25).collidepoint(event.pos):  # Close bracket
                         numericString += ")"
+                        num += ")"
                     elif pygame.Rect(x-274, y-414, 32, 22).collidepoint(event.pos):  # Clear
                         numericString = ""
+                        num = ""
 
             if event.type == REDRAW_WINDOW: drawWindow()
         selected_option = ham.update(event_list, scroll_y)
@@ -219,7 +251,7 @@ def calculator(string_input):
     if string_input == "":
         return 0
     i = 1
-    while i < len(string_input):
+    while i < len(string_input) - 1:
         if string_input[i] == "(" and string_input[i-1] not in symbs:
             string_input = string_input[0:i] + "*" + string_input[i:]
         if string_input[i] == ")" and string_input[i+1] not in symbs:
@@ -228,10 +260,21 @@ def calculator(string_input):
     try:
         answer = eval(string_input)
     except SyntaxError:
-        return "Syntax Error! Maybe incomplete parentheses."
+        return "Syntax Error!"
     # except Exception as e:
     #     return e
+    answer = round(answer, 9)
+    if len(str(answer)) > 11:
+        answer = int(str(answer)[0:12])
     return answer
+
+# Draws and handles calculator text
+def handleCalcText(num, surf):
+    text = CALCFONT.render(str(num), 1, (0, 0, 0))
+    # SMALL = (880, 530)
+    # WIN.blit(text, (605, 160))
+    surf.fill(CALC_SCREEN)
+    surf.blit(text, (0, 0, 0, 0))
 
 
 # For Windows operating system, make a unique appid in order to show icon in taskbar
