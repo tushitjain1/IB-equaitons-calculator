@@ -332,6 +332,17 @@ def calculator(string_input):
     if len(str(answer).replace(".", "")) > 4:
         length = min(len(str(answer))-1, 10)
         answer = format(answer, ".%sE" % length)
+        ans = list(answer)
+        e = ans.index("E")
+        # answer = int(str(answer)[0:-2])
+        if ans[e+2] == "0":
+            ans.pop(e+2)
+            e = ans.index("E")
+        for i in range(e-1, 2, -1):
+            if ans[i] != "0":
+                break
+            ans.pop(i)
+        answer = "".join(ans)
     return answer
 
 # Draws and handles calculator text
