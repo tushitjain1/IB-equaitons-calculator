@@ -169,7 +169,7 @@ def main():
                         num += "^"
                     elif pygame.Rect(x-187, y-66, 30, 25).collidepoint(event.pos):  # *10^y
                         numericString += "*10**"
-                        num += "x10^"
+                        num += "×10^"
                     elif pygame.Rect(x-142, y-66, 30, 25).collidepoint(event.pos):  # Open bracket
                         numericString += "("
                         num += "("
@@ -182,8 +182,12 @@ def main():
 
             if event.type == KEYDOWN:
                 if event.key in [pygame.K_0, pygame.K_KP0]:
-                    numericString += "0"
-                    num += "0"
+                    if event.mod-4096 in [pygame.KMOD_LSHIFT, pygame.KMOD_RSHIFT]:
+                        numericString += ")"
+                        num += ")"
+                    else:
+                        numericString += "0"
+                        num += "0"
                 if event.key in [pygame.K_1, pygame.K_KP1]:
                     numericString += "1"
                     num += "1"
@@ -200,17 +204,29 @@ def main():
                     numericString += "5"
                     num += "5"
                 if event.key in [pygame.K_6, pygame.K_KP6]:
-                    numericString += "6"
-                    num += "6"
+                    if event.mod-4096 in [pygame.KMOD_LSHIFT, pygame.KMOD_RSHIFT]:
+                        numericString += "**"
+                        num += "^"
+                    else:
+                        numericString += "6"
+                        num += "6"
                 if event.key in [pygame.K_7, pygame.K_KP7]:
                     numericString += "7"
                     num += "7"
                 if event.key in [pygame.K_8, pygame.K_KP8]:
-                    numericString += "8"
-                    num += "8"
+                    if event.mod-4096 in [pygame.KMOD_LSHIFT, pygame.KMOD_RSHIFT]:
+                        numericString += "*"
+                        num += "×"
+                    else:
+                        numericString += "8"
+                        num += "8"
                 if event.key in [pygame.K_9, pygame.K_KP9]:
-                    numericString += "9"
-                    num += "9"
+                    if event.mod-4096 in [pygame.KMOD_LSHIFT, pygame.KMOD_RSHIFT]:
+                        numericString += "("
+                        num += "("
+                    else:
+                        numericString += "9"
+                        num += "9"
                 if event.key in [pygame.K_PLUS, pygame.K_KP_PLUS]:
                     numericString += "+"
                     num += "+"
@@ -239,10 +255,14 @@ def main():
                     numericString = numericString[0:-1]
                     num = num[0:-1]
                 if event.key in [pygame.K_RETURN, pygame.K_EQUALS, pygame.K_KP_ENTER, pygame.K_KP_EQUALS]:
-                    num = str(calculator(numericString))
-                    print(num)
-                    # numericString = ""
-                    numericString = str(num)
+                    if event.mod-4096 in [pygame.KMOD_LSHIFT, pygame.KMOD_RSHIFT]:
+                        numericString += "+"
+                        num += "+"
+                    else:
+                        num = str(calculator(numericString))
+                        print(num)
+                        # numericString = ""
+                        numericString = str(num)
 
             if event.type == REDRAW_WINDOW: drawWindow()
         selected_option = ham.update(event_list, scroll_y)
