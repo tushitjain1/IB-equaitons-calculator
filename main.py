@@ -81,7 +81,7 @@ def main():
             if event.type == pygame.QUIT:
                 run = False
 
-            handleCalcText(num, calcText)
+            calcXScroll = handleCalcText(num, calcText)
             if not show_settings:
                 WIN.blit(calcText, (x-275, y-370))
 
@@ -156,12 +156,14 @@ def main():
                     elif pygame.Rect(x-162, y-118, 40, 40).collidepoint(event.pos):  # Equals to
                         num = str(calculator(numericString))
                         print(num)
-                        numericString = ""
+                        # numericString = ""
+                        numericString = str(num)
                     elif pygame.Rect(x-103, y-118, 40, 40).collidepoint(event.pos):  # Divide
                         numericString += "/"
                         num += "/"
                     elif pygame.Rect(x-281, y-66, 30, 25).collidepoint(event.pos):  # Pi
                         numericString += str(math.pi)
+                        num += str(math.pi)
                     elif pygame.Rect(x-235, y-66, 30, 25).collidepoint(event.pos):  # To the power
                         numericString += "**"
                         num += "^"
@@ -177,6 +179,70 @@ def main():
                     elif pygame.Rect(x-274, y-414, 32, 22).collidepoint(event.pos):  # Clear
                         numericString = ""
                         num = ""
+
+            if event.type == KEYDOWN:
+                if event.key in [pygame.K_0, pygame.K_KP0]:
+                    numericString += "0"
+                    num += "0"
+                if event.key in [pygame.K_1, pygame.K_KP1]:
+                    numericString += "1"
+                    num += "1"
+                if event.key in [pygame.K_2, pygame.K_KP2]:
+                    numericString += "2"
+                    num += "2"
+                if event.key in [pygame.K_3, pygame.K_KP3]:
+                    numericString += "3"
+                    num += "3"
+                if event.key in [pygame.K_4, pygame.K_KP4]:
+                    numericString += "4"
+                    num += "4"
+                if event.key in [pygame.K_5, pygame.K_KP5]:
+                    numericString += "5"
+                    num += "5"
+                if event.key in [pygame.K_6, pygame.K_KP6]:
+                    numericString += "6"
+                    num += "6"
+                if event.key in [pygame.K_7, pygame.K_KP7]:
+                    numericString += "7"
+                    num += "7"
+                if event.key in [pygame.K_8, pygame.K_KP8]:
+                    numericString += "8"
+                    num += "8"
+                if event.key in [pygame.K_9, pygame.K_KP9]:
+                    numericString += "9"
+                    num += "9"
+                if event.key in [pygame.K_PLUS, pygame.K_KP_PLUS]:
+                    numericString += "+"
+                    num += "+"
+                if event.key in [pygame.K_MINUS, pygame.K_KP_MINUS]:
+                    numericString += "-"
+                    num += "-"
+                if event.key in [pygame.K_ASTERISK, pygame.K_KP_MULTIPLY]:
+                    numericString += "*"
+                    num += "×"
+                if event.key in [pygame.K_SLASH, pygame.K_KP_DIVIDE]:
+                    numericString += "/"
+                    num += "/"
+                if event.key in [pygame.K_PERIOD, pygame.K_KP_PERIOD]:
+                    numericString += "."
+                    num += "."
+                if event.key in [pygame.K_LEFTPAREN, pygame.K_LEFTBRACKET]:
+                    numericString += "("
+                    num += "("
+                if event.key in [pygame.K_RIGHTPAREN, pygame.K_RIGHTBRACKET]:
+                    numericString += ")"
+                    num += ")"
+                if event.key == pygame.K_CARET:
+                    numericString += "**"
+                    num += "^"
+                if event.key == pygame.K_BACKSPACE:
+                    numericString = numericString[0:-1]
+                    num = num[0:-1]
+                if event.key in [pygame.K_RETURN, pygame.K_EQUALS, pygame.K_KP_ENTER, pygame.K_KP_EQUALS]:
+                    num = str(calculator(numericString))
+                    print(num)
+                    # numericString = ""
+                    numericString = str(num)
 
             if event.type == REDRAW_WINDOW: drawWindow()
         selected_option = ham.update(event_list, scroll_y)
@@ -263,16 +329,14 @@ def calculator(string_input):
         return "Syntax Error!"
     # except Exception as e:
     #     return e
-    answer = round(answer, 9)
-    if len(str(answer)) > 11:
-        answer = int(str(answer)[0:12])
+    if len(str(answer).replace(".", "")) > 4:
+        length = min(len(str(answer))-1, 10)
+        answer = format(answer, ".%sE" % length)
     return answer
 
 # Draws and handles calculator text
 def handleCalcText(num, surf):
     text = CALCFONT.render(str(num), 1, (0, 0, 0))
-    # SMALL = (880, 530)
-    # WIN.blit(text, (605, 160))
     surf.fill(CALC_SCREEN)
     surf.blit(text, (0, 0, 0, 0))
 
