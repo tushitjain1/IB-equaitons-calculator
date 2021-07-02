@@ -347,10 +347,12 @@ def calculator(string_input):
         answer = eval(string_input)
     except SyntaxError:
         return "Syntax Error!"
+    except ZeroDivisionError:
+        return "Error"
     # except Exception as e:
     #     return e
     if len(str(answer).replace(".", "")) > 4:
-        length = min(len(str(answer))-1, 10)
+        length = min(len(str(answer))-1, 7)
         answer = format(answer, ".%sE" % length)
         ans = list(answer)
         e = ans.index("E")
