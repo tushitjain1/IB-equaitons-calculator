@@ -14,7 +14,7 @@ LARGE = (1270, 690)
 WIDTH, HEIGHT = SMALL
 WIN = pygame.display.set_mode((WIDTH, HEIGHT))
 # Window title
-pygame.display.set_caption("IB equations calculator")
+pygame.display.set_caption("IB Equations Calculator")
 
 # Colours
 MAIN_COLOUR = (133, 220, 186)
@@ -49,9 +49,10 @@ CALCIMAGE = pygame.transform.smoothscale(CALCIMAGE, (390, 500))
 pygame.display.set_icon(ICON)
 
 # Hamburger menu
-option_rect = (0, 10, 200, 90)
+option_rect = (0, 10, 370, 90)
 ham_pos = (20, 10)
-opts = ["Equation %i" %i for i in range(15)]
+opts = ["Equation %i" %i for i in range(14)]
+opts.insert(0, "Area of Parallelogram")
 ham = SideMenu(
     [(0, 0, 0), (0, 0, 0)],
     [COLOR_LIST_INACTIVE, COLOR_LIST_ACTIVE],
@@ -334,7 +335,7 @@ def resize(size):
 # Handles calculations
 def calculator(string_input):
     symbs = ["+", "-", "/", "*"]
-    if string_input == "":
+    if string_input == "" or string_input[-1] == "!":
         return 0
     i = 1
     while i < len(string_input) - 1:
@@ -348,9 +349,7 @@ def calculator(string_input):
     except SyntaxError:
         return "Syntax Error!"
     except ZeroDivisionError:
-        return "Error"
-    # except Exception as e:
-    #     return e
+        return "Error!"
     if len(str(answer).replace(".", "")) > 4:
         length = min(len(str(answer))-1, 7)
         answer = format(answer, ".%sE" % length)

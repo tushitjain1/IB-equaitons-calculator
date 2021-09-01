@@ -9,6 +9,7 @@ def areaParallelogram(vars):
     eq1 = Eq(vars[0]*vars[1], vars[2])
     return solve(eq1)
 
+
 a = 10
 b = 20
 h = None
