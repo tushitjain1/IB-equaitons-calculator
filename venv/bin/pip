@@ -1,4 +1,4 @@
-#!/home/noname/school/IB-equaitons-calculator/venv/bin/python
+#!/home/noname/school/IB-equaitons-calculator/venv/bin/python3.9
 # -*- coding: utf-8 -*-
 import re
 import sys
