@@ -53,6 +53,7 @@ option_rect = (0, 10, 370, 90)
 ham_pos = (20, 10)
 opts = ["Equation %i" %i for i in range(14)]
 opts.insert(0, "Area of Parallelogram")
+opts.insert(0, "Main")
 ham = SideMenu(
     [(0, 0, 0), (0, 0, 0)],
     [COLOR_LIST_INACTIVE, COLOR_LIST_ACTIVE],
@@ -69,7 +70,8 @@ def main():
     clock = pygame.time.Clock()
     run = True
     scroll_y = HAMTHREE.get_height()
-    drawWindow()
+    windowNum = -1
+    drawWindow(windowNum)
     numericString = ""
     num = ""
     show_settings = False
@@ -103,7 +105,7 @@ def main():
                             resize(LARGE)
                 # Elif click was within the window but outside of a rectangle equal to the settings menu: redraw main
                 elif pygame.Rect(0, 0, x, y).collidepoint(event.pos) and show_settings:
-                        drawWindow()
+                        drawWindow(windowNum)
                         show_settings = False
                         hamSurf.set_alpha(100)
                 # If click on a rect exactly the same as HAMTHREE icon, draw equations menu
@@ -265,10 +267,11 @@ def main():
                         # numericString = ""
                         numericString = str(num)
 
-            if event.type == REDRAW_WINDOW: drawWindow()
+            if event.type == REDRAW_WINDOW: drawWindow(windowNum)
         selected_option = ham.update(event_list, scroll_y)
         if selected_option >= 0:
             opt = ham.options[selected_option]
+            windowNum = selected_option
             print(opt)
         ham.draw(hamSurf)
         WIN.set_clip((0, ham_pos[1] + HAMTHREE.get_height(), x, y-(ham_pos[1] + HAMTHREE.get_height())))
@@ -278,7 +281,7 @@ def main():
     pygame.quit()
 
 # Draw the main window
-def drawWindow():
+def drawWindow(windowNum):
     x, y = WIN.get_size()
     WIN.fill(MAIN_COLOUR)
     hamSurf.fill(MAIN_COLOUR)
@@ -287,6 +290,8 @@ def drawWindow():
     WIN.blit(CALCIMAGE, (x-375, y-500))
     clear = TITLEFONT2.render("Clear", 1, (0, 0, 0))
     WIN.blit(clear, (x-274, y-414))
+    if (windowNum == 1):
+        print("Display Area of Parallelogram Equation")
     pygame.display.update()
 
 # Draw the settings window
@@ -324,12 +329,12 @@ def drawShowSelect(y):
     pygame.draw.circle(WIN, OPTION_COLOUR, (100, y + 2), 10)
 
 # Changes the global variables to the new desired size
-def resize(size):
+def resize(size, windowNum = 0):
     global WIDTH, HEIGHT, WIN, hamSurf
     WIDTH, HEIGHT = size
     WIN = pygame.display.set_mode((WIDTH, HEIGHT))
     hamSurf = pygame.Surface((option_rect[2]+20, option_rect[3]*len(opts) + HEIGHT/2))
-    drawWindow()
+    drawWindow(windowNum)
     drawSettings(WIDTH, HEIGHT)
 
 # Handles calculations
