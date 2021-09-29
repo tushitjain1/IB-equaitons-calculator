@@ -80,8 +80,8 @@
         </li>
     </nav>
     <img src="{{url_for('static', filename='calculatorart-01.png')}}" style="position: absolute; right: 10px"/>
-    {% block equation %}
-    {% endblock %}
-    
-    <p><strong>{{message}}</strong></p>
+    <p>
+        {% block body %}
+        {% endblock %}
+    </p>
 </body>
