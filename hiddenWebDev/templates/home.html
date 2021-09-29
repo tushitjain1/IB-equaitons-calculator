@@ -9,80 +9,92 @@
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <a class="navbar-brand">
+        <a class="navbar-brand" href="/">
             <img src="{{url_for('static', filename='calc.png')}}" alt="icon" width="30" height="30" class="d-inline-block align-top">
         </a> 
         <li class="nav-item dropdown" style="list-style: none;">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color:azure">
+            <a class="nav-link dropdown-toggle" href="" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color:azure">
               Prior Learning
             </a>
             <form class="dropdown-menu" aria-labelledby="navbarDropdown" method="POST">
-                <button class="dropdown-item" type="submit" name="para1" value="parallelogram-area">Area of Parallelogram</button>
-                <button class="dropdown-item" type="submit" name="tri1" value="triangle-area-1">Area of Triangle</button>
-                <button class="dropdown-item" type="submit" name="para1" value="parallelogram-area">Area of Trapezoid</a>
-                <button class="dropdown-item" type="submit" name="para1" value="parallelogram-area">Area of Circle</a>
-                <button class="dropdown-item" type="submit" name="para1" value="parallelogram-area">Area of Cylinder Curve</a>
-                <a class="dropdown-item" href="#">Circumference of Circle</a>
-                <a class="dropdown-item" href="#">Volume of Cuboid</a>
-                <a class="dropdown-item" href="#">Volume of Cylinder</a>
-                <a class="dropdown-item" href="#">Volume of Prism</a>
-                <a class="dropdown-item" href="#">Distance Between Two Points</a>
-                <a class="dropdown-item" href="#">Coordinates of Midpoint</a>
+                <button class="dropdown-item" type="submit" name="para1" value="para1">Area of Parallelogram</button>
+                <button class="dropdown-item" type="submit" name="tri1" value="tri1">Area of Triangle</button>
+                <button class="dropdown-item" type="submit" name="trap1" value="trap1">Area of Trapezoid</button>
+                <button class="dropdown-item" type="submit" name="circ1" value="circ1">Area of Circle</button>
+                <button class="dropdown-item" type="submit" name="cyl1" value="cyl1">Area of Cylinder Curve</button>
+                <button class="dropdown-item" type="submit" name="circ2" value="circ2">Circumference of Circle</button>
+                <button class="dropdown-item" type="submit" name="cub1" value="cub1">Volume of Cuboid</button>
+                <button class="dropdown-item" type="submit" name="cyl2" value="cyl2">Volume of Cylinder</button>
+                <button class="dropdown-item" type="submit" name="pris1" value="pris1">Volume of Prism</button>
+                <button class="dropdown-item" type="submit" name="poi1" value="poi1">Distance Between Two Points</button>
+                <button class="dropdown-item" type="submit" name="poi2" value="poi2">Coordinates of Midpoint</button>
             </form>
         </li>
         <li class="nav-item dropdown" style="list-style: none;">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown2" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color:azure">
+            <a class="nav-link dropdown-toggle" href="" id="navbarDropdown2" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color:azure">
                 Number And Algebra
             </a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdown2">
-                <a class="dropdown-item" href="#">n'th Term of Arithemetic Sequence</a>
-                <a class="dropdown-item" href="#">n'th Term of Geometric Sequence</a>
-                <a class="dropdown-item" href="#">Sum of n terms of an Arithemetic Sequence</a>
-                <a class="dropdown-item" href="#">Sum of n terms of a Finite Geometric Sequence</a>
-                <a class="dropdown-item" href="#">Sum of n terms of a Infinite Geometric Sequence</a>
-                <a class="dropdown-item" href="#">Compound Interest</a>
-                <a class="dropdown-item" href="#">Combinations</a>
-                <a class="dropdown-item" href="#">Permutations</a>
-            </div>
+            <form class="dropdown-menu" aria-labelledby="navbarDropdown2" method="POST">
+                <button class="dropdown-item" type="submit" name="term1" value="term1">n'th Term of Arithemetic Sequence</button>
+                <button class="dropdown-item" type="submit" name="term2" value="term2">n'th Term of Geometric Sequence</button>
+                <button class="dropdown-item" type="submit" name="sum1" value="sum1">Sum of n terms of an Arithemetic Sequence</button>
+                <button class="dropdown-item" type="submit" name="sum2" value="sum2">Sum of n terms of a Finite Geometric Sequence</button>
+                <button class="dropdown-item" type="submit" name="sum3" value="sum3">Sum of n terms of a Infinite Geometric Sequence</button>
+                <button class="dropdown-item" type="submit" name="int1" value="int1">Compound Interest</button>
+                <button class="dropdown-item" type="submit" name="comb1" value="comb1">Combinations</button>
+                <button class="dropdown-item" type="submit" name="perm1" value="perm1">Permutations</button>
+            </form>
         </li>
         <li class="nav-item dropdown" style="list-style: none;">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown3" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color:azure">
+            <a class="nav-link dropdown-toggle" href="" id="navbarDropdown3" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color:azure">
                 Funcitons
             </a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdown3">
-                <a class="dropdown-item" href="#">Gradient Formula</a>
-                <a class="dropdown-item" href="#">Axis of Symmetry for Quadratic</a>
-                <a class="dropdown-item" href="#">Quadratic Equation</a>
-                <a class="dropdown-item" href="#">Discriminant</a>
-            </div>
+            <form class="dropdown-menu" aria-labelledby="navbarDropdown3" method="POST">
+                <button class="dropdown-item" type="submit" name="gra1" value="gra1">Gradient Formula</button>
+                <button class="dropdown-item" type="submit" name="axi1" value="axi1">Axis of Symmetry for Quadratic</button>
+                <button class="dropdown-item" type="submit" name="quad1" value="quad1">Quadratic Equation</button>
+                <button class="dropdown-item" type="submit" name="disc1" value="disc1">Discriminant</button>
+            </form>
         </li>
         <li class="nav-item dropdown" style="list-style: none;">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown4" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color:azure">
+            <a class="nav-link dropdown-toggle" href="" id="navbarDropdown4" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color:azure">
                 Geometry and Trigonometry
             </a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdown4">
-                <a class="dropdown-item" href="#">Distance between Two Points in Space</a>
-                <a class="dropdown-item" href="#">Coordinates of Midpoint of Line in Space</a>
-                <a class="dropdown-item" href="#">Volume of a Right-Pyramid</a>
-                <a class="dropdown-item" href="#">Volume of a Right-Cone</a>
-                <a class="dropdown-item" href="#">Volume of a Sphere</a>
-                <a class="dropdown-item" href="#">Area of Cone Curve</a>
-                <a class="dropdown-item" href="#">Surface area of Sphere</a>
-                <a class="dropdown-item" href="#">Sin Rule</a>
-                <a class="dropdown-item" href="#">Cosin Rule</a>
-                <a class="dropdown-item" href="#">Area of Triangle</a>
-                <a class="dropdown-item" href="#">Arc-length</a>
-                <a class="dropdown-item" href="#">Sector-Area</a>
-                <a class="dropdown-item" href="#">Magnitude of a Vector</a>
-                <a class="dropdown-item" href="#">Dot Product</a>
-                <a class="dropdown-item" href="#">Angle between two Vectors</a>
-            </div>
+            <form class="dropdown-menu" aria-labelledby="navbarDropdown4" method="POST">
+                <button class="dropdown-item" type="submit" name="poi3" value="poi3">Distance between Two Points in Space</button>
+                <button class="dropdown-item" type="submit" name="poi4" value="poi4">Coordinates of Midpoint of Line in Space</button>
+                <button class="dropdown-item" type="submit" name="pyr1" value="pyr1">Volume of a Right-Pyramid</button>
+                <button class="dropdown-item" type="submit" name="con1" value="con1">Volume of a Right-Cone</button>
+                <button class="dropdown-item" type="submit" name="sph1" value="sph1">Volume of a Sphere</button>
+                <button class="dropdown-item" type="submit" name="con2" value="con2">Area of Cone Curve</button>
+                <button class="dropdown-item" type="submit" name="sph2" value="sph2">Surface area of Sphere</button>
+                <button class="dropdown-item" type="submit" name="sin1" value="sin1">Sin Rule</button>
+                <button class="dropdown-item" type="submit" name="cos1" value="cos1">Cosin Rule</button>
+                <button class="dropdown-item" type="submit" name="tri2" value="tri2">Area of Triangle</button>
+                <button class="dropdown-item" type="submit" name="arc1" value="arc1">Arc-length</button>
+                <button class="dropdown-item" type="submit" name="sec1" value="sec1">Sector-Area</button>
+                <button class="dropdown-item" type="submit" name="mag1" value="mag1">Magnitude of a Vector</button>
+                <button class="dropdown-item" type="submit" name="dot1" value="dot1">Dot Product</button>
+                <button class="dropdown-item" type="submit" name="ang1" value="ang1">Angle between two Vectors</button>
+            </form>
         </li>
     </nav>
     <img src="{{url_for('static', filename='calculatorart-01.png')}}" style="position: absolute; right: 10px"/>
     <p id="main">
-    {% if val == 1 %}
-        <img id="mainImg" src="{{url_for('static', filename='parallelogram-area.jpg')}}" alt="Equation"/>
-    {% endif %}
+        {% if val == 0 %}
+        <h1>Welcome</h1>
+        {% elif val == 1 %}
+        <img src="{{url_for('static', filename='parallelogram-area.jpg')}}" alt="Equation"/>
+        {% elif val == 2 %}
+        <img src="{{url_for('static', filename='areaoftriangle.jpg')}}" alt="Equation" style="max-width: 500px; max-height: 500px"/>
+        {% elif val == 3 %}
+        <img src="{{url_for('static', filename='trapezoid-area.jpg')}}" alt="Equation" style="max-width: 500px; max-height: 500px"/>
+        {% elif val == 4 %}
+        <img src="{{url_for('static', filename='area-of-circle-information.png')}}" alt="Equation" style="max-width: 500px; max-height: 500px"/>
+        {% elif val == 5 %}
+        <img src="{{url_for('static', filename='cylinder-curved.png')}}" alt="Equation" style="max-width: 500px; max-height: 500px"/>
+        {% elif val == 6 %}
+        <img src="{{url_for('static', filename='circumfrence-circle.jpg')}}" alt="Equation" style="max-width: 500px; max-height: 500px"/>
+        {% endif %}
     </p>
 </body>
