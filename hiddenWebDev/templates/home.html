@@ -16,19 +16,19 @@
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color:azure">
               Prior Learning
             </a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <button class="dropdown-item" id="parallelogram-area.jpg" onclick="">Area of Parallelogram</button>
-                <button class="dropdown-item" id="areaTriangle">Area of Triangle</button>
-                <a class="dropdown-item" href="#">Area of Trapezoid</a>
-                <a class="dropdown-item" href="#">Area of Circle</a>
-                <a class="dropdown-item" href="#">Area of Cylinder Curve</a>
+            <form class="dropdown-menu" aria-labelledby="navbarDropdown" method="POST">
+                <button class="dropdown-item" type="submit" name="para1" value="parallelogram-area">Area of Parallelogram</button>
+                <button class="dropdown-item" type="submit" name="tri1" value="triangle-area-1">Area of Triangle</button>
+                <button class="dropdown-item" type="submit" name="para1" value="parallelogram-area">Area of Trapezoid</a>
+                <button class="dropdown-item" type="submit" name="para1" value="parallelogram-area">Area of Circle</a>
+                <button class="dropdown-item" type="submit" name="para1" value="parallelogram-area">Area of Cylinder Curve</a>
                 <a class="dropdown-item" href="#">Circumference of Circle</a>
                 <a class="dropdown-item" href="#">Volume of Cuboid</a>
                 <a class="dropdown-item" href="#">Volume of Cylinder</a>
                 <a class="dropdown-item" href="#">Volume of Prism</a>
                 <a class="dropdown-item" href="#">Distance Between Two Points</a>
                 <a class="dropdown-item" href="#">Coordinates of Midpoint</a>
-            </div>
+            </form>
         </li>
         <li class="nav-item dropdown" style="list-style: none;">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown2" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color:azure">
@@ -81,10 +81,8 @@
     </nav>
     <img src="{{url_for('static', filename='calculatorart-01.png')}}" style="position: absolute; right: 10px"/>
     <p id="main">
-        {% block body %}
-        {% set imageFile = 'parallelogram.jpg' %}
-        {% set display = 'display: block' %}
-        <img id="mainImg" src="{{url_for('static', filename='{{imageFile}}')}}" alt="Equation" style="{{display}}" />
-        {% endblock %}
+    {% if val == 1 %}
+        <img id="mainImg" src="{{url_for('static', filename='parallelogram-area.jpg')}}" alt="Equation"/>
+    {% endif %}
     </p>
 </body>
