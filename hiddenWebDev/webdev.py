@@ -14,9 +14,7 @@ def home():
         val = 0
     if request.method == 'POST':
         for k in request.form.keys():
-            print(k)
             val = pics.index(k) + 1
-            print(val)
     return render_template("home.html", val=val)
 
 

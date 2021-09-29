@@ -79,8 +79,8 @@
             </form>
         </li>
     </nav>
-    <img src="{{url_for('static', filename='calculatorart-01.png')}}" style="position: absolute; right: 10px"/>
-    <p id="main">
+    <img src="{{url_for('static', filename='calculatorart-01.png')}}" alt="Calculator" style="position: absolute; right: 10px"/>
+    <div id="main">
         {% if val == 0 %}
         <h1>Welcome</h1>
         {% elif val == 1 %}
@@ -96,5 +96,5 @@
         {% elif val == 6 %}
         <img src="{{url_for('static', filename='circumfrence-circle.jpg')}}" alt="Equation" style="max-width: 500px; max-height: 500px"/>
         {% endif %}
-    </p>
+    </div>
 </body>
