@@ -80,6 +80,10 @@
         </li>
     </nav>
     <img src="{{url_for('static', filename='calculatorart-01.png')}}" alt="Calculator" style="position: absolute; right: 10px"/>
+    <form method="POST">
+        <input type="number" size="300" style="position: absolute; top: 100px; right: 90px;">
+        <button type="reset" name="clear" value="clear">Clear</button>
+    </form>
     <div id="main">
         {% if val == 0 %}
         <h1>Welcome</h1>
