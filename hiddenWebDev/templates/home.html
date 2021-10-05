@@ -11,7 +11,11 @@
     function handleCalc(button) {
         var box = document.getElementById("calc-text");
         box.value += button;
-        box.focus();        
+        box.focus();
+    }
+    function calculate() {
+        var box = document.getElementById("calc-text");
+        alert("submit");
     }
 </script>
 <body>
@@ -90,7 +94,7 @@
     <form id="calculator" method="POST">
         <label style="position: absolute; top: 110px; right: 60px; font-size: 30px;">
 <!--            <input type="number" id="calc-text" step="0.000000001" placeholder="Start Calculating!" style="width: 280px;">-->
-            <input type="text" id="calc-text" pattern="[0-9()×*+-./^π]*?" placeholder="Start Calculating!" style="width: 280px;">
+            <input type="text" id="calc-text" pattern="[0-9()×*+-./^π]*?" onsubmit="calculate()" placeholder="Start Calculating!" style="width: 280px;">
             <button type="reset" style="position: absolute; top: 60px; right: 0;">Clear</button>
             <button type="button" value="7" onclick="handleCalc(7)" style="position: absolute; top: 155px; right: 232px; width: 55px; height: 55px; background: transparent; border: none !important; outline: none;"></button>
             <button type="button" value="8" onclick="handleCalc(8)" style="position: absolute; top: 155px; right: 150px; width: 55px; height: 55px; background: transparent; border: none !important; outline: none;"></button>
