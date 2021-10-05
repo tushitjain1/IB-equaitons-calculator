@@ -7,6 +7,13 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
 </head>
+<script>
+    function handleCalc(button) {
+        var box = document.getElementById("calc-text");
+        box.value += button;
+        box.focus();        
+    }
+</script>
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <a class="navbar-brand" href="/">
@@ -80,9 +87,33 @@
         </li>
     </nav>
     <img src="{{url_for('static', filename='calculatorart-01.png')}}" alt="Calculator" style="position: absolute; right: 10px"/>
-    <form method="POST">
-        <input type="number" size="300" style="position: absolute; top: 100px; right: 90px;">
-        <button type="reset" name="clear" value="clear">Clear</button>
+    <form id="calculator" method="POST">
+        <label style="position: absolute; top: 110px; right: 60px; font-size: 30px;">
+<!--            <input type="number" id="calc-text" step="0.000000001" placeholder="Start Calculating!" style="width: 280px;">-->
+            <input type="text" id="calc-text" pattern="[0-9()×*+-./^π]*?" placeholder="Start Calculating!" style="width: 280px;">
+            <button type="reset" style="position: absolute; top: 60px; right: 0;">Clear</button>
+            <button type="button" value="7" onclick="handleCalc(7)" style="position: absolute; top: 155px; right: 232px; width: 55px; height: 55px; background: transparent; border: none !important; outline: none;"></button>
+            <button type="button" value="8" onclick="handleCalc(8)" style="position: absolute; top: 155px; right: 150px; width: 55px; height: 55px; background: transparent; border: none !important; outline: none;"></button>
+            <button type="button" value="9" onclick="handleCalc(9)" style="position: absolute; top: 155px; right: 70px; width: 55px; height: 55px; background: transparent; border: none !important; outline: none;"></button>
+            <button type="button" value="+" onclick="handleCalc('+')" style="position: absolute; top: 155px; right: -11px; width: 55px; height: 55px; background: transparent; border: none !important; outline: none;"></button>
+            <button type="button" value="4" onclick="handleCalc(4)" style="position: absolute; top: 238px; right: 232px; width: 55px; height: 55px; background: transparent; border: none !important; outline: none;"></button>
+            <button type="button" value="5" onclick="handleCalc(5)" style="position: absolute; top: 238px; right: 150px; width: 55px; height: 55px; background: transparent; border: none !important; outline: none;"></button>
+            <button type="button" value="6" onclick="handleCalc(6)" style="position: absolute; top: 238px; right: 70px; width: 55px; height: 55px; background: transparent; border: none !important; outline: none;"></button>
+            <button type="button" value="-" onclick="handleCalc('-')" style="position: absolute; top: 238px; right: -11px; width: 55px; height: 55px; background: transparent; border: none !important; outline: none;"></button>
+            <button type="button" value="1" onclick="handleCalc(1)" style="position: absolute; top: 321px; right: 232px; width: 55px; height: 55px; background: transparent; border: none !important; outline: none;"></button>
+            <button type="button" value="2" onclick="handleCalc(2)" style="position: absolute; top: 321px; right: 150px; width: 55px; height: 55px; background: transparent; border: none !important; outline: none;"></button>
+            <button type="button" value="3" onclick="handleCalc(3)" style="position: absolute; top: 321px; right: 70px; width: 55px; height: 55px; background: transparent; border: none !important; outline: none;"></button>
+            <button type="button" value="*" onclick="handleCalc('×')" style="position: absolute; top: 321px; right: -11px; width: 55px; height: 55px; background: transparent; border: none !important; outline: none;"></button>
+            <button type="button" value="0" onclick="handleCalc(0)" style="position: absolute; top: 404px; right: 232px; width: 55px; height: 55px; background: transparent; border: none !important; outline: none;"></button>
+            <button type="button" value="." onclick="handleCalc('.')" style="position: absolute; top: 404px; right: 150px; width: 55px; height: 55px; background: transparent; border: none !important; outline: none;"></button>
+            <button type="button" value="=" onclick="handleCalc('=')" style="position: absolute; top: 404px; right: 70px; width: 55px; height: 55px; background: transparent; border: none !important; outline: none;"></button>
+            <button type="button" value="/" onclick="handleCalc('/')" style="position: absolute; top: 404px; right: -11px; width: 55px; height: 55px; background: transparent; border: none !important; outline: none;"></button>
+            <button type="button" value="pi" onclick="handleCalc('π')" style="position: absolute; top: 480px; right: 249px; width: 38px; height: 29px; background: transparent; border: none !important; outline: none;"></button>
+            <button type="button" value="^" onclick="handleCalc('^')" style="position: absolute; top: 480px; right: 186px; width: 38px; height: 29px; background: transparent; border: none !important; outline: none;"></button>
+            <button type="button" value="*10^" onclick="handleCalc('×10^')" style="position: absolute; top: 480px; right: 120px; width: 38px; height: 29px; background: transparent; border: none !important; outline: none;"></button>
+            <button type="button" value="(" onclick="handleCalc('(')" style="position: absolute; top: 480px; right: 56px; width: 38px; height: 29px; background: transparent; border: none !important; outline: none;"></button>
+            <button type="button" value=")" onclick="handleCalc(')')" style="position: absolute; top: 480px; right: -10px; width: 38px; height: 29px; background: transparent; border: none !important; outline: none;"></button>
+        </label>
     </form>
     <div id="main">
         {% if val == 0 %}
