@@ -2,27 +2,19 @@
 <head>
     <title>IB Equations Calculator</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<!--    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>-->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
 </head>
-<script>
-    function handleCalc(button) {
-        var box = document.getElementById("calc-text");
-        box.value += button;
-        box.focus();
-    }
-    function calculate() {
-        var box = document.getElementById("calc-text");
-        alert("submit");
-    }
-</script>
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <a class="navbar-brand" href="/">
-            <img src="{{url_for('static', filename='calc.png')}}" alt="icon" width="30" height="30" class="d-inline-block align-top">
-        </a> 
+        <form method="POST">
+            <a class="navbar-brand" type="submit" name="icon" value="icon">
+                <img src="{{url_for('static', filename='calc.png')}}" alt="icon" width="30" height="30" class="d-inline-block align-top">
+            </a>
+        </form>
         <li class="nav-item dropdown" style="list-style: none;">
             <a class="nav-link dropdown-toggle" href="" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color:azure">
               Prior Learning
@@ -94,7 +86,7 @@
     <form id="calculator" method="POST">
         <label style="position: absolute; top: 110px; right: 60px; font-size: 30px;">
 <!--            <input type="number" id="calc-text" step="0.000000001" placeholder="Start Calculating!" style="width: 280px;">-->
-            <input type="text" id="calc-text" pattern="[0-9()×*+-./^π]*?" onsubmit="calculate()" placeholder="Start Calculating!" style="width: 280px;">
+            <input type="text" id="calc-text" name="calc-text" pattern="[0-9()×*+-./^π]*?" placeholder="Start Calculating!" style="width: 280px;">
             <button type="reset" style="position: absolute; top: 60px; right: 0;">Clear</button>
             <button type="button" value="7" onclick="handleCalc(7)" style="position: absolute; top: 155px; right: 232px; width: 55px; height: 55px; background: transparent; border: none !important; outline: none;"></button>
             <button type="button" value="8" onclick="handleCalc(8)" style="position: absolute; top: 155px; right: 150px; width: 55px; height: 55px; background: transparent; border: none !important; outline: none;"></button>
@@ -110,7 +102,7 @@
             <button type="button" value="*" onclick="handleCalc('×')" style="position: absolute; top: 321px; right: -11px; width: 55px; height: 55px; background: transparent; border: none !important; outline: none;"></button>
             <button type="button" value="0" onclick="handleCalc(0)" style="position: absolute; top: 404px; right: 232px; width: 55px; height: 55px; background: transparent; border: none !important; outline: none;"></button>
             <button type="button" value="." onclick="handleCalc('.')" style="position: absolute; top: 404px; right: 150px; width: 55px; height: 55px; background: transparent; border: none !important; outline: none;"></button>
-            <button type="button" value="=" onclick="handleCalc('=')" style="position: absolute; top: 404px; right: 70px; width: 55px; height: 55px; background: transparent; border: none !important; outline: none;"></button>
+            <button type="submit" value="=" style="position: absolute; top: 404px; right: 70px; width: 55px; height: 55px; background: transparent; border: none !important; outline: none;"></button>
             <button type="button" value="/" onclick="handleCalc('/')" style="position: absolute; top: 404px; right: -11px; width: 55px; height: 55px; background: transparent; border: none !important; outline: none;"></button>
             <button type="button" value="pi" onclick="handleCalc('π')" style="position: absolute; top: 480px; right: 249px; width: 38px; height: 29px; background: transparent; border: none !important; outline: none;"></button>
             <button type="button" value="^" onclick="handleCalc('^')" style="position: absolute; top: 480px; right: 186px; width: 38px; height: 29px; background: transparent; border: none !important; outline: none;"></button>
@@ -119,6 +111,25 @@
             <button type="button" value=")" onclick="handleCalc(')')" style="position: absolute; top: 480px; right: -10px; width: 38px; height: 29px; background: transparent; border: none !important; outline: none;"></button>
         </label>
     </form>
+    <script>
+        function handleCalc(button) {
+            var box = document.getElementById("calc-text");
+            box.value += button;
+            box.focus();
+        }
+        // document.querySelector("#calculator").addEventListener("submit", function(event) {
+        //     var box = document.getElementById("calc-text");
+        //     alert(box.value);
+        //     // var xhr = new XMLHttpRequest();
+        //     // xhr.open("POST", "http://127.0.0.1:5000/", true);
+        //     // xhr.setRequestHeader('calc-text', 'application/json');
+        //     // xhr.send(JSON.stringify({
+        //     //     value: box.value
+        //     // }));
+        //     // box.value = 0;
+        //     // event.preventDefault();
+        // }, false);
+    </script>
     <div id="main">
         {% if val == 0 %}
         <h1>Welcome</h1>
