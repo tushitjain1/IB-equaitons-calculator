@@ -11,7 +11,8 @@
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <form method="POST">
-            <a class="navbar-brand" type="submit" name="icon" value="icon">
+            <button type="submit" id="icon" name="icon" value="icon" style="display: none"></button>
+            <a class="navbar-brand" onclick="document.getElementById('icon').click();" style="cursor: pointer">
                 <img src="{{url_for('static', filename='calc.png')}}" alt="icon" width="30" height="30" class="d-inline-block align-top">
             </a>
         </form>
@@ -85,7 +86,6 @@
     <img src="{{url_for('static', filename='calculatorart-01.png')}}" alt="Calculator" style="position: absolute; right: 10px"/>
     <form id="calculator" method="POST">
         <label style="position: absolute; top: 110px; right: 60px; font-size: 30px;">
-<!--            <input type="number" id="calc-text" step="0.000000001" placeholder="Start Calculating!" style="width: 280px;">-->
             <input type="text" id="calc-text" name="calc-text" pattern="[0-9()×*+-./^π]*?" placeholder="Start Calculating!" style="width: 280px;">
             <button type="reset" style="position: absolute; top: 60px; right: 0;">Clear</button>
             <button type="button" value="7" onclick="handleCalc(7)" style="position: absolute; top: 155px; right: 232px; width: 55px; height: 55px; background: transparent; border: none !important; outline: none;"></button>
@@ -117,18 +117,6 @@
             box.value += button;
             box.focus();
         }
-        // document.querySelector("#calculator").addEventListener("submit", function(event) {
-        //     var box = document.getElementById("calc-text");
-        //     alert(box.value);
-        //     // var xhr = new XMLHttpRequest();
-        //     // xhr.open("POST", "http://127.0.0.1:5000/", true);
-        //     // xhr.setRequestHeader('calc-text', 'application/json');
-        //     // xhr.send(JSON.stringify({
-        //     //     value: box.value
-        //     // }));
-        //     // box.value = 0;
-        //     // event.preventDefault();
-        // }, false);
     </script>
     <div id="main">
         {% if val == 0 %}
