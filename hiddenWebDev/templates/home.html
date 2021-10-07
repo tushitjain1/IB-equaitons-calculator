@@ -2,7 +2,6 @@
 <head>
     <title>IB Equations Calculator</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-<!--    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>-->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
@@ -85,9 +84,10 @@
     </nav>
     <img src="{{url_for('static', filename='calculatorart-01.png')}}" alt="Calculator" style="position: absolute; right: 10px"/>
     <form id="calculator" method="POST">
-        <label style="position: absolute; top: 110px; right: 60px; font-size: 30px;"> {{answer}}
-            <input type="text" id="calc-text" name="calc-text" pattern="[0-9()×*+-./^π]*?" placeholder="Start Calculating!" style="width: 280px;">
-            <button type="reset" style="position: absolute; top: 60px; right: 0;">Clear</button>
+        <label style="position: absolute; top: 110px; right: 60px; font-size: 30px;">
+            <p id="calc-text-label" onclick="handleLabel()" style="width: 280px; position: absolute; display: block">{{answer}}</p>
+            <input type="text" id="calc-text" name="calc-text" pattern="[0-9()×*+-./^π]*?" style="width: 280px;">
+            <button type="reset" onclick="handleLabel()" style="position: absolute; top: 60px; right: 0;">Clear</button>
             <button type="button" value="7" onclick="handleCalc(7)" style="position: absolute; top: 155px; right: 232px; width: 55px; height: 55px; background: transparent; border: none !important; outline: none;"></button>
             <button type="button" value="8" onclick="handleCalc(8)" style="position: absolute; top: 155px; right: 150px; width: 55px; height: 55px; background: transparent; border: none !important; outline: none;"></button>
             <button type="button" value="9" onclick="handleCalc(9)" style="position: absolute; top: 155px; right: 70px; width: 55px; height: 55px; background: transparent; border: none !important; outline: none;"></button>
@@ -113,9 +113,16 @@
     </form>
     <script>
         function handleCalc(button) {
+            if (document.getElementById("calc-text-label").innerText !== "") {
+                handleLabel();
+            }
             var box = document.getElementById("calc-text");
             box.value += button;
             box.focus();
+        }
+        function handleLabel() {
+            document.getElementById("calc-text").value = document.getElementById("calc-text-label").innerText;
+            document.getElementById("calc-text-label").innerText = "";
         }
     </script>
     <div id="main">
