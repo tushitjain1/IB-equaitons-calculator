@@ -339,7 +339,7 @@ def resize(size, windowNum = 0):
 
 # Handles calculations
 def calculator(string_input):
-    symbs = ["+", "-", "/", "*"]
+    symbs = ["+", "-", "/", "*","π","^","×"]
     if string_input == "" or string_input[-1] == "!":
         return 0
     i = 1

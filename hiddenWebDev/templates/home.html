@@ -85,7 +85,7 @@
     </nav>
     <img src="{{url_for('static', filename='calculatorart-01.png')}}" alt="Calculator" style="position: absolute; right: 10px"/>
     <form id="calculator" method="POST">
-        <label style="position: absolute; top: 110px; right: 60px; font-size: 30px;">
+        <label style="position: absolute; top: 110px; right: 60px; font-size: 30px;"> {{answer}}
             <input type="text" id="calc-text" name="calc-text" pattern="[0-9()×*+-./^π]*?" placeholder="Start Calculating!" style="width: 280px;">
             <button type="reset" style="position: absolute; top: 60px; right: 0;">Clear</button>
             <button type="button" value="7" onclick="handleCalc(7)" style="position: absolute; top: 155px; right: 232px; width: 55px; height: 55px; background: transparent; border: none !important; outline: none;"></button>
