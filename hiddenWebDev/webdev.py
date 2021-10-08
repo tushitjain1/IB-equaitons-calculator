@@ -11,9 +11,9 @@ def home():
     calcText = ""
     answer = ""
     variables = dict()
-    pics = ['icon', 'para1', 'tri1', 'trap1', 'circ1', 'cyl1', 'circ2', 'cub1', 'cyl2', 'pris1', 'poi1', 'poi2',
-            'term1', 'term2', 'sum1', 'sum2', 'sum3', 'int1', 'comb1', 'perm1', 'gra1', 'axi1', 'quad1', 'disc1',
-            'poi3', 'poi4', 'pyr1', 'con1', 'sph1', 'con2', 'sph2', 'sin1', 'cos1', 'tri2', 'arc1', 'sec1', 'mag1',
+    pics = ['icon', 'para1', 'tri1', 'trap1', 'circ1', 'cyl1', 'circ2', 'cub1', 'cyl2', 'pris1',
+            'term1', 'term2', 'sum1', 'sum2', 'sum3', 'int1', 'comb1', 'perm1', 'axi1', 'quad1', 'disc1',
+            'pyr1', 'con1', 'sph1', 'con2', 'sph2', 'sin1', 'cos1', 'tri2', 'arc1', 'sec1', 'mag1',
             'dot1', 'ang1']
     if request.method == 'POST':
         for k in request.form.keys():
@@ -33,6 +33,8 @@ def home():
                 vals.append(variables[v])
             if count > 1:
                 answer = "Multiple Unknowns Error!"
+            elif count == 0:
+                answer = "No Unknowns Error!"
             else:
                 answer = str(runFunction(val - 1, vals))
     return render_template("home.html", val=val, calc=calcText, answer=answer)
