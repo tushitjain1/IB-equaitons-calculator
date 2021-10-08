@@ -14,7 +14,56 @@ def para1(variables):
     return solve(eq1)[0]
 
 def tri1(variables):
-    pass
+    for i in range(3):
+        if variables[i] == "":
+            variables[i] = symbols('x')
+    eq1 = Eq(variables[0], 0.5*variables[1] * variables[2])
+    return solve(eq1)[0]
+
+def trap1(variables):
+    for i in range(4):
+        if variables[i] == "":
+            variables[i] = symbols('x')
+    eq1 = Eq(variables[0],(variables[1] + variables[2]) * 0.5 * variables[3])
+    return solve(eq1)[0]
+
+def circ1(variables):
+    for i in range(2):
+        if variables[i] == "":
+            variables[i] = symbols('x')
+    eq1 = Eq(variables[0], (variables[1]**2)*math.pi)
+    return solve(eq1)[0]
+
+def cyl1(variables):
+    for i in range(3):
+        if variables[i] == "":
+            variables[i] = symbols('x')
+    eq1 = Eq(variables[0], 2 * math.pi * variables[1] * variables[2])
+    return solve(eq1)[0]
+
+def circ2(variables):
+    for i in range(2):
+        if variables[i] == "":
+            variables[i] = symbols('x')
+    eq1 = Eq(variables[0], 2*math.pi*variables[1])
+    return solve(eq1)[0]
+
+def cub1(variables):
+    for i in range(4):
+        if variables[i] == "":
+            variables[i] = symbols('x')
+    eq1 = Eq(variables[0],variables[1]*variables[2]*variables[3])
+    return solve(eq1)[0]
+
+def cyl2(variables):
+    for i in range(3):
+        if variables[i] == "":
+            variables[i] = symbols('x')
+    eq1 = Eq(variables[0],variables[2]*math.pi*variables[1]**2) #1 is radius
+    return solve(eq1)[0]
+
+
+
 
 functions = ['para1(variables)', 'tri1(variables)', 'trap1(variables)', 'circ1(variables)', 'cyl1(variables)',
              'circ2(variables)', 'cub1(variables)', 'cyl2(variables)', 'pris1(variables)', 'poi1(variables)',
