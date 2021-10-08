@@ -1,5 +1,6 @@
 from flask import Flask, render_template,request
 import math
+from functions import runFunction
 app = Flask(__name__)
 val = 0
 
@@ -8,6 +9,8 @@ val = 0
 def home():
     global val
     calcText = ""
+    answer = ""
+    variables = dict()
     pics = ['icon', 'para1', 'tri1', 'trap1', 'circ1', 'cyl1', 'circ2', 'cub1', 'cyl2', 'pris1', 'poi1', 'poi2',
             'term1', 'term2', 'sum1', 'sum2', 'sum3', 'int1', 'comb1', 'perm1', 'gra1', 'axi1', 'quad1', 'disc1',
             'poi3', 'poi4', 'pyr1', 'con1', 'sph1', 'con2', 'sph2', 'sin1', 'cos1', 'tri2', 'arc1', 'sec1', 'mag1',
@@ -17,8 +20,22 @@ def home():
             if k in pics:
                 val = pics.index(k)
             else:
-                calcText = calculator(request.form[k])
-    return render_template("home.html", val=val, answer=calcText)
+                if k == "calc-text":
+                    calcText = calculator(request.form[k])
+                else:
+                    variables[k] = calculator(request.form[k])
+        if len(variables) > 0:
+            count = 0
+            vals = []
+            for v in variables:
+                if variables[v] == "":
+                    count += 1
+                vals.append(variables[v])
+            if count > 1:
+                answer = "Multiple Unknowns Error!"
+            else:
+                answer = str(runFunction(val - 1, vals))
+    return render_template("home.html", val=val, calc=calcText, answer=answer)
 
 
 def calculator(calcText):
@@ -40,6 +57,8 @@ def calculator(calcText):
         if pyInput[i] == ")" and pyInput[i+1] not in symbs:
             pyInput = pyInput[0:i+1] + "*" + pyInput[i+1:]
         i += 1
+    if pyInput == "":
+        return pyInput
     try:
         answer = eval(pyInput)
     except SyntaxError:

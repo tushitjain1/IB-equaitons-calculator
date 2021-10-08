@@ -85,7 +85,7 @@
     <img src="{{url_for('static', filename='calculatorart-01.png')}}" alt="Calculator" style="position: absolute; right: 10px"/>
     <form id="calculator" method="POST">
         <label style="position: absolute; top: 110px; right: 60px; font-size: 30px;">
-            <p id="calc-text-label" onclick="handleLabel()" style="width: 280px; position: absolute; display: block">{{answer}}</p>
+            <p id="calc-text-label" onclick="handleLabel()" style="width: 280px; position: absolute; display: block">{{calc}}</p>
             <input type="text" id="calc-text" name="calc-text" pattern="[0-9()×*+-./^π]*?" style="width: 280px;">
             <button type="reset" onclick="handleLabel()" style="position: absolute; top: 60px; right: 0;">Clear</button>
             <button type="button" value="7" onclick="handleCalc(7)" style="position: absolute; top: 155px; right: 232px; width: 55px; height: 55px; background: transparent; border: none !important; outline: none;"></button>
@@ -130,6 +130,19 @@
         <h1>Welcome</h1>
         {% elif val == 1 %}
         <img src="{{url_for('static', filename='parallelogram-area.jpg')}}" alt="Equation"/>
+        <form method="POST">
+            <label style="font-size: 30px"> A
+                <input type="text" name="A" pattern="[0-9()×*+-./^π]*?" style="width: 70px">
+            </label>
+            <label style="font-size: 30px"> b
+                <input type="text" name="b" pattern="[0-9()×*+-./^π]*?" style="width: 70px">
+            </label>
+            <label style="font-size: 30px"> h
+                <input type="text" name="h" pattern="[0-9()×*+-./^π]*?" style="width: 70px">
+            </label>
+            <button type="submit">Solve</button>
+        </form>
+        <h1>{{answer}}</h1>
         {% elif val == 2 %}
         <img src="{{url_for('static', filename='areaoftriangle.jpg')}}" alt="Equation" style="max-width: 500px; max-height: 500px"/>
         {% elif val == 3 %}
