@@ -1,9 +1,12 @@
 ﻿import math
-from sympy import symbols, Eq, solve
+from sympy import symbols, Eq, solve, sin, cos
 
 
 def runFunction(index, variables):
-    return eval(functions[index])
+    try:
+        return eval(functions[index])
+    except Exception:
+        return "Error!"
 
 
 def para1(variables):
@@ -78,12 +81,197 @@ def pris1(variables):
     return solve(eq1)[0]
 
 
-def poi1(variables):
+def term1(variables):
+    for i in range(4):
+        if variables[i] == "":
+            variables[i] = symbols('x')
+    eq1 = Eq(variables[0], variables[1] + (variables[2] - 1) * variables[3])
+    return solve(eq1)[0]
+
+
+def term2(variables):
+    for i in range(4):
+        if variables[i] == "":
+            variables[i] = symbols('x')
+    eq1 = Eq(variables[0], variables[1] * (variables[2] ** (variables[3] - 1)))
+    return solve(eq1)[0]
+
+
+def sum1(variables):
+    for i in range(4):
+        if variables[i] == "":
+            variables[i] = symbols('x')
+    eq1 = Eq(variables[0], 0.5 * variables[1] * (2 * variables[2] + (variables[1] - 1) * variables[3]))
+    return solve(eq1)[0]
+
+
+def sum2(variables):
+    for i in range(4):
+        if variables[i] == "":
+            variables[i] = symbols('x')
+    eq1 = Eq(variables[0], (variables[1] * (variables[2] ** variables[3] - 1))/(variables[2] - 1))
+    return solve(eq1)[0]
+
+
+def sum3(variables):
+    if variables[2] != "" and math.fabs(variables[2]) >= 1:
+        return "Invalid r value!"
+    for i in range(3):
+        if variables[i] == "":
+            variables[i] = symbols('x')
+    eq1 = Eq(variables[0], variables[1] / (1 - variables[2]))
+    return solve(eq1)[0]
+
+
+def int1(variables):
     for i in range(5):
         if variables[i] == "":
             variables[i] = symbols('x')
-    eq1 = Eq(variables[0], ((variables[3] - variables[1]) ** 2 + (variables[4] - variables[2]) ** 2) ** 0.5)
-    return math.fabs(solve(eq1)[0])
+    eq1 = Eq(variables[0], variables[1] * ((1 + (variables[2] * 0.01) / variables[3]) ** (variables[3] * variables[4])))
+    return solve(eq1)[0]
+
+
+def comb1(variables):
+    return math.comb(variables[1], variables[2])
+
+
+def perm1(variables):
+    return math.perm(variables[1], variables[2])
+
+
+def axi1(variables):
+    for i in range(3):
+        if variables[i] == "":
+            variables[i] = symbols('x')
+    eq1 = Eq(variables[0], (-1 * variables[2])/(2 * variables[1]))
+    return solve(eq1)[0]
+
+
+def quad1(variables):
+    for i in range(4):
+        if variables[i] == "":
+            variables[i] = symbols('x')
+    eq1 = Eq(variables[0], (-1 * variables[2] + (variables[2] ** 2 - (4 * variables[1] * variables[3])) ** 0.5)
+             / (2 * variables[1]))
+    if type(variables[0]) != int:
+        eq2 = Eq(variables[0], (-1 * variables[2] - (variables[2] ** 2 - (4 * variables[1] * variables[3])) ** 0.5)
+                 / (2 * variables[1]))
+        return f"{solve(eq1)[0]}, {solve(eq2)[0]}"
+    return solve(eq1)[0]
+
+
+def disc1(variables):
+    for i in range(4):
+        if variables[i] == "":
+            variables[i] = symbols('x')
+    eq1 = Eq(variables[0], variables[2] ** 2 - (4 * variables[1] * variables[3]))
+    return solve(eq1)[0]
+
+
+def pyr1(variables):
+    for i in range(4):
+        if variables[i] == "":
+            variables[i] = symbols('x')
+    eq1 = Eq(variables[0], (1 / 3) * variables[1] * variables[2] * variables[3])
+    return solve(eq1)[0]
+
+
+def con1(variables):
+    for i in range(3):
+        if variables[i] == "":
+            variables[i] = symbols('x')
+    eq1 = Eq(variables[0], (1 / 3) * math.pi * variables[1] ** 2 * variables[2])
+    return solve(eq1)[0]
+
+
+def sph1(variables):
+    for i in range(2):
+        if variables[i] == "":
+            variables[i] = symbols('x')
+    eq1 = Eq(variables[0], (4 / 3) * math.pi * variables[1] ** 3)
+    return solve(eq1)[0]
+
+
+def con2(variables):
+    for i in range(3):
+        if variables[i] == "":
+            variables[i] = symbols('x')
+    eq1 = Eq(variables[0], math.pi * variables[1] * variables[2])
+    return solve(eq1)[0]
+
+
+def sph2(variables):
+    for i in range(2):
+        if variables[i] == "":
+            variables[i] = symbols('x')
+    eq1 = Eq(variables[0], 4 * math.pi * variables[1] ** 2)
+    return solve(eq1)[0]
+
+
+def sin1(variables):
+    for i in range(4):
+        if variables[i] == "":
+            variables[i] = symbols('x')
+    eq1 = Eq(variables[0] / sin(variables[2]), variables[1] / sin(variables[3]))
+    return solve(eq1)[0]
+
+
+def cos1(variables):
+    for i in range(4):
+        if variables[i] == "":
+            variables[i] = symbols('x')
+    eq1 = Eq(variables[2] ** 2, variables[0] ** 2 + variables[1] ** 2 -
+             2 * variables[0] * variables[1] * cos(variables[3]))
+    return solve(eq1)[0]
+
+
+def tri2(variables):
+    for i in range(4):
+        if variables[i] == "":
+            variables[i] = symbols('x')
+    eq1 = Eq(variables[0], 0.5 * variables[1] * variables[2] * sin(variables[3]))
+    return solve(eq1)[0]
+
+
+def arc1(variables):
+    for i in range(3):
+        if variables[i] == "":
+            variables[i] = symbols('x')
+    eq1 = Eq(variables[0], variables[1] * variables[2])
+    return solve(eq1)[0]
+
+
+def sec1(variables):
+    for i in range(3):
+        if variables[i] == "":
+            variables[i] = symbols('x')
+    eq1 = Eq(variables[0], 0.5 * variables[1] ** 2 * variables[2])
+    return solve(eq1)[0]
+
+
+def mag1(variables):
+    for i in range(3):
+        if variables[i] == "":
+            variables[i] = symbols('x')
+    eq1 = Eq(variables[0], (variables[1] ** 2 + variables[2] ** 2) ** 0.5)
+    return solve(eq1)[0]
+
+
+def dot1(variables):
+    for i in range(5):
+        if variables[i] == "":
+            variables[i] = symbols('x')
+    eq1 = Eq(variables[0], variables[1] * variables[3] + variables[2] * variables[4])
+    return solve(eq1)[0]
+
+
+def ang1(variables):
+    for i in range(4):
+        if variables[i] == "":
+            variables[i] = symbols('x')
+    eq1 = Eq(cos(variables[0]), (variables[1] * variables[3] + variables[2] * variables[4]) /
+             (((variables[1] ** 2 + variables[2] ** 2) ** 0.5) * ((variables[3] ** 2 + variables[4] ** 2) ** 0.5)))
+    return solve(eq1)[0]
 
 
 functions = ['para1(variables)', 'tri1(variables)', 'trap1(variables)', 'circ1(variables)', 'cyl1(variables)',

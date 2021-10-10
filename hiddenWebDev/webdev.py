@@ -24,7 +24,7 @@ def home():
                     calcText = calculator(request.form[k])
                 else:
                     variables[k] = calculator(request.form[k])
-        if len(variables) > 0:
+        if val > 0 and len(variables) > 0:
             count = 0
             vals = []
             for v in variables:

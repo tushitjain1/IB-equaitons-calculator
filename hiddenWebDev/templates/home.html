@@ -40,7 +40,7 @@
                 <button class="dropdown-item" type="submit" name="term2" value="term2">n'th Term of Geometric Sequence</button>
                 <button class="dropdown-item" type="submit" name="sum1" value="sum1">Sum of n terms of an Arithemetic Sequence</button>
                 <button class="dropdown-item" type="submit" name="sum2" value="sum2">Sum of n terms of a Finite Geometric Sequence</button>
-                <button class="dropdown-item" type="submit" name="sum3" value="sum3">Sum of n terms of a Infinite Geometric Sequence</button>
+                <button class="dropdown-item" type="submit" name="sum3" value="sum3">Sum of n terms of an Infinite Geometric Sequence</button>
                 <button class="dropdown-item" type="submit" name="int1" value="int1">Compound Interest</button>
                 <button class="dropdown-item" type="submit" name="comb1" value="comb1">Combinations</button>
                 <button class="dropdown-item" type="submit" name="perm1" value="perm1">Permutations</button>
@@ -65,15 +65,15 @@
                 <button class="dropdown-item" type="submit" name="con1" value="con1">Volume of a Right-Cone</button>
                 <button class="dropdown-item" type="submit" name="sph1" value="sph1">Volume of a Sphere</button>
                 <button class="dropdown-item" type="submit" name="con2" value="con2">Area of Cone Curve</button>
-                <button class="dropdown-item" type="submit" name="sph2" value="sph2">Surface area of Sphere</button>
-                <button class="dropdown-item" type="submit" name="sin1" value="sin1">Sin Rule</button>
-                <button class="dropdown-item" type="submit" name="cos1" value="cos1">Cosin Rule</button>
+                <button class="dropdown-item" type="submit" name="sph2" value="sph2">Surface Area of Sphere</button>
+                <button class="dropdown-item" type="submit" name="sin1" value="sin1">Sine Rule</button>
+                <button class="dropdown-item" type="submit" name="cos1" value="cos1">Cosine Rule</button>
                 <button class="dropdown-item" type="submit" name="tri2" value="tri2">Area of Triangle</button>
-                <button class="dropdown-item" type="submit" name="arc1" value="arc1">Arc-length</button>
+                <button class="dropdown-item" type="submit" name="arc1" value="arc1">Arc-Length</button>
                 <button class="dropdown-item" type="submit" name="sec1" value="sec1">Sector-Area</button>
                 <button class="dropdown-item" type="submit" name="mag1" value="mag1">Magnitude of a Vector</button>
                 <button class="dropdown-item" type="submit" name="dot1" value="dot1">Dot Product</button>
-                <button class="dropdown-item" type="submit" name="ang1" value="ang1">Angle between two Vectors</button>
+                <button class="dropdown-item" type="submit" name="ang1" value="ang1">Angle Between Two Vectors</button>
             </form>
         </li>
     </nav>
@@ -127,13 +127,13 @@
         <img src="{{url_for('static', filename='parallelogram-area.jpg')}}" alt="Equation"/>
         <form method="POST">
             <label style="font-size: 30px"> A
-                <input type="text" name="A" pattern="[0-9()×*+-./^π]*?" style="width: 70px">
+                <input type="text" name="A" pattern="[0-9()×*+./^π]*?" style="width: 70px">
             </label>
             <label style="font-size: 30px"> b
-                <input type="text" name="b" pattern="[0-9()×*+-./^π]*?" style="width: 70px">
+                <input type="text" name="b" pattern="[0-9()×*+./^π]*?" style="width: 70px">
             </label>
             <label style="font-size: 30px"> h
-                <input type="text" name="h" pattern="[0-9()×*+-./^π]*?" style="width: 70px">
+                <input type="text" name="h" pattern="[0-9()×*+./^π]*?" style="width: 70px">
             </label>
             <button type="submit">Solve</button>
         </form>
@@ -142,13 +142,13 @@
         <img src="{{url_for('static', filename='areaoftriangle.jpg')}}" alt="Equation" style="max-width: 500px; max-height: 500px"/>
         <form method="POST">
             <label style="font-size: 30px"> A
-                <input type="text" name="A" pattern="[0-9()×*+-./^π]*?" style="width: 70px">
+                <input type="text" name="A" pattern="[0-9()×*+./^π]*?" style="width: 70px">
             </label>
             <label style="font-size: 30px"> b
-                <input type="text" name="b" pattern="[0-9()×*+-./^π]*?" style="width: 70px">
+                <input type="text" name="b" pattern="[0-9()×*+./^π]*?" style="width: 70px">
             </label>
             <label style="font-size: 30px"> h
-                <input type="text" name="h" pattern="[0-9()×*+-./^π]*?" style="width: 70px">
+                <input type="text" name="h" pattern="[0-9()×*+./^π]*?" style="width: 70px">
             </label>
             <button type="submit">Solve</button>
         </form>
@@ -157,16 +157,16 @@
         <img src="{{url_for('static', filename='trapezoid-area.jpg')}}" alt="Equation" style="max-width: 500px; max-height: 500px"/>
         <form method="POST">
             <label style="font-size: 30px"> A
-                <input type="text" name="A" pattern="[0-9()×*+-./^π]*?" style="width: 70px">
+                <input type="text" name="A" pattern="[0-9()×*+./^π]*?" style="width: 70px">
             </label>
             <label style="font-size: 30px"> a
-                <input type="text" name="a" pattern="[0-9()×*+-./^π]*?" style="width: 70px">
+                <input type="text" name="a" pattern="[0-9()×*+./^π]*?" style="width: 70px">
             </label>
             <label style="font-size: 30px"> b
-                <input type="text" name="b" pattern="[0-9()×*+-./^π]*?" style="width: 70px">
+                <input type="text" name="b" pattern="[0-9()×*+./^π]*?" style="width: 70px">
             </label>
             <label style="font-size: 30px"> h
-                <input type="text" name="h" pattern="[0-9()×*+-./^π]*?" style="width: 70px">
+                <input type="text" name="h" pattern="[0-9()×*+./^π]*?" style="width: 70px">
             </label>
             <button type="submit">Solve</button>
         </form>
@@ -175,10 +175,10 @@
         <img src="{{url_for('static', filename='area-of-circle-information.png')}}" alt="Equation" style="max-width: 500px; max-height: 500px"/>
         <form method="POST">
             <label style="font-size: 30px"> A
-                <input type="text" name="A" pattern="[0-9()×*+-./^π]*?" style="width: 70px">
+                <input type="text" name="A" pattern="[0-9()×*+./^π]*?" style="width: 70px">
             </label>
             <label style="font-size: 30px"> r
-                <input type="text" name="r" pattern="[0-9()×*+-./^π]*?" style="width: 70px">
+                <input type="text" name="r" pattern="[0-9()×*+./^π]*?" style="width: 70px">
             </label>
             <button type="submit">Solve</button>
         </form>
@@ -187,13 +187,13 @@
         <img src="{{url_for('static', filename='cylinder-curved.png')}}" alt="Equation" style="max-width: 500px; max-height: 500px"/>
         <form method="POST">
             <label style="font-size: 30px"> A
-                <input type="text" name="A" pattern="[0-9()×*+-./^π]*?" style="width: 70px">
+                <input type="text" name="A" pattern="[0-9()×*+./^π]*?" style="width: 70px">
             </label>
             <label style="font-size: 30px"> r
-                <input type="text" name="r" pattern="[0-9()×*+-./^π]*?" style="width: 70px">
+                <input type="text" name="r" pattern="[0-9()×*+./^π]*?" style="width: 70px">
             </label>
             <label style="font-size: 30px"> h
-                <input type="text" name="h" pattern="[0-9()×*+-./^π]*?" style="width: 70px">
+                <input type="text" name="h" pattern="[0-9()×*+./^π]*?" style="width: 70px">
             </label>
             <button type="submit">Solve</button>
         </form>
@@ -202,10 +202,10 @@
         <img src="{{url_for('static', filename='circumfrence-circle.jpg')}}" alt="Equation" style="max-width: 500px; max-height: 500px"/>
         <form method="POST">
             <label style="font-size: 30px"> C
-                <input type="text" name="C" pattern="[0-9()×*+-./^π]*?" style="width: 70px">
+                <input type="text" name="C" pattern="[0-9()×*+./^π]*?" style="width: 70px">
             </label>
             <label style="font-size: 30px"> r
-                <input type="text" name="r" pattern="[0-9()×*+-./^π]*?" style="width: 70px">
+                <input type="text" name="r" pattern="[0-9()×*+./^π]*?" style="width: 70px">
             </label>
             <button type="submit">Solve</button>
         </form>
@@ -214,16 +214,16 @@
         <img src="{{url_for('static', filename='volume-cuboid.png')}}" alt="Equation" style="max-width: 500px; max-height: 500px"/>
         <form method="POST">
             <label style="font-size: 30px"> V
-                <input type="text" name="V" pattern="[0-9()×*+-./^π]*?" style="width: 70px">
+                <input type="text" name="V" pattern="[0-9()×*+./^π]*?" style="width: 70px">
             </label>
             <label style="font-size: 30px"> l
-                <input type="text" name="l" pattern="[0-9()×*+-./^π]*?" style="width: 70px">
+                <input type="text" name="l" pattern="[0-9()×*+./^π]*?" style="width: 70px">
             </label>
             <label style="font-size: 30px"> w
-                <input type="text" name="w" pattern="[0-9()×*+-./^π]*?" style="width: 70px">
+                <input type="text" name="w" pattern="[0-9()×*+./^π]*?" style="width: 70px">
             </label>
             <label style="font-size: 30px"> h
-                <input type="text" name="h" pattern="[0-9()×*+-./^π]*?" style="width: 70px">
+                <input type="text" name="h" pattern="[0-9()×*+./^π]*?" style="width: 70px">
             </label>
             <button type="submit">Solve</button>
         </form>
@@ -232,13 +232,13 @@
         <img src="{{url_for('static', filename='volumecyl.png')}}" alt="Equation" style="max-width: 500px; max-height: 500px"/>
         <form method="POST">
             <label style="font-size: 30px"> V
-                <input type="text" name="V" pattern="[0-9()×*+-./^π]*?" style="width: 70px">
+                <input type="text" name="V" pattern="[0-9()×*+./^π]*?" style="width: 70px">
             </label>
             <label style="font-size: 30px"> r
-                <input type="text" name="r" pattern="[0-9()×*+-./^π]*?" style="width: 70px">
+                <input type="text" name="r" pattern="[0-9()×*+./^π]*?" style="width: 70px">
             </label>
             <label style="font-size: 30px"> h
-                <input type="text" name="h" pattern="[0-9()×*+-./^π]*?" style="width: 70px">
+                <input type="text" name="h" pattern="[0-9()×*+./^π]*?" style="width: 70px">
             </label>
             <button type="submit">Solve</button>
         </form>
@@ -247,68 +247,422 @@
         <img src="{{url_for('static', filename='v-prism.png')}}" alt="Equation" style="max-width: 500px; max-height: 500px"/>
         <form method="POST">
             <label style="font-size: 30px"> V
-                <input type="text" name="V" pattern="[0-9()×*+-./^π]*?" style="width: 70px">
+                <input type="text" name="V" pattern="[0-9()×*+./^π]*?" style="width: 70px">
             </label>
             <label style="font-size: 30px"> b
-                <input type="text" name="b" pattern="[0-9()×*+-./^π]*?" style="width: 70px">
+                <input type="text" name="b" pattern="[0-9()×*+./^π]*?" style="width: 70px">
             </label>
             <label style="font-size: 30px"> h
-                <input type="text" name="h" pattern="[0-9()×*+-./^π]*?" style="width: 70px">
+                <input type="text" name="h" pattern="[0-9()×*+./^π]*?" style="width: 70px">
             </label>
             <label style="font-size: 30px"> l
-                <input type="text" name="l" pattern="[0-9()×*+-./^π]*?" style="width: 70px">
+                <input type="text" name="l" pattern="[0-9()×*+./^π]*?" style="width: 70px">
             </label>
             <button type="submit">Solve</button>
         </form>
         <h1>{{answer}}</h1>
         {% elif val == 10 %}
         <img src="{{url_for('static', filename='n1.png')}}" alt="Equation" style="max-width: 500px; max-height: 500px"/>
+        <form method="POST">
+            <label style="font-size: 30px"> a<sub>n</sub>
+                <input type="text" name="an" pattern="[0-9()×*+-./^π]*?" style="width: 70px">
+            </label>
+            <label style="font-size: 30px"> a<sub>1</sub>
+                <input type="text" name="a1" pattern="[0-9()×*+-./^π]*?" style="width: 70px">
+            </label>
+            <label style="font-size: 30px"> n
+                <input type="text" name="n" pattern="[0-9()×*+-./^π]*?" style="width: 70px">
+            </label>
+            <label style="font-size: 30px"> d
+                <input type="text" name="d" pattern="[0-9()×*+-./^π]*?" style="width: 70px">
+            </label>
+            <button type="submit">Solve</button>
+        </form>
+        <h1>{{answer}}</h1>
         {% elif val == 11 %}
         <img src="{{url_for('static', filename='geometric-sequence.png')}}" alt="Equation" style="max-width: 500px; max-height: 500px"/>
+        <form method="POST">
+            <label style="font-size: 30px"> a<sub>n</sub>
+                <input type="text" name="an" pattern="[0-9()×*+-./^π]*?" style="width: 70px">
+            </label>
+            <label style="font-size: 30px"> a<sub>1</sub>
+                <input type="text" name="a1" pattern="[0-9()×*+-./^π]*?" style="width: 70px">
+            </label>
+            <label style="font-size: 30px"> r
+                <input type="text" name="r" pattern="[0-9()×*+-./^π]*?" style="width: 70px">
+            </label>
+            <label style="font-size: 30px"> n
+                <input type="text" name="n" pattern="[0-9()×*+-./^π]*?" style="width: 70px">
+            </label>
+            <button type="submit">Solve</button>
+        </form>
+        <h1>{{answer}}</h1>
         {% elif val == 12 %}
         <img src="{{url_for('static', filename='n2.jpg')}}" alt="Equation" style="max-width: 500px; max-height: 500px"/>
+        <form method="POST">
+            <label style="font-size: 30px"> S<sub>n</sub>
+                <input type="text" name="sn" pattern="[0-9()×*+-./^π]*?" style="width: 70px">
+            </label>
+            <label style="font-size: 30px"> n
+                <input type="text" name="n" pattern="[0-9()×*+-./^π]*?" style="width: 70px">
+            </label>
+            <label style="font-size: 30px"> a<sub>1</sub>
+                <input type="text" name="a1" pattern="[0-9()×*+-./^π]*?" style="width: 70px">
+            </label>
+            <label style="font-size: 30px"> d
+                <input type="text" name="d" pattern="[0-9()×*+-./^π]*?" style="width: 70px">
+            </label>
+            <button type="submit">Solve</button>
+        </form>
+        <h1>{{answer}}</h1>
         {% elif val == 13 %}
         <img src="{{url_for('static', filename='n3.jpg')}}" alt="Equation" style="max-width: 500px; max-height: 500px"/>
+        <form method="POST">
+            <label style="font-size: 30px"> S<sub>n</sub>
+                <input type="text" name="sn" pattern="[0-9()×*+-./^π]*?" style="width: 70px">
+            </label>
+            <label style="font-size: 30px"> a<sub>1</sub>
+                <input type="text" name="a1" pattern="[0-9()×*+-./^π]*?" style="width: 70px">
+            </label>
+            <label style="font-size: 30px"> r
+                <input type="text" name="r" pattern="[0-9()×*+-./^π]*?" style="width: 70px">
+            </label>
+            <label style="font-size: 30px"> n
+                <input type="text" name="n" pattern="[0-9()×*+-./^π]*?" style="width: 70px">
+            </label>
+            <button type="submit">Solve</button>
+        </form>
+        <h1>{{answer}}</h1>
         {% elif val == 14 %}
         <img src="{{url_for('static', filename='sumlol.png')}}" alt="Equation" style="max-width: 500px; max-height: 500px"/>
+        <form method="POST">
+            <label style="font-size: 30px"> S<sub>∞</sub>
+                <input type="text" name="sn" pattern="[0-9()×*+-./^π]*?" style="width: 70px">
+            </label>
+            <label style="font-size: 30px"> a<sub>1</sub>
+                <input type="text" name="a1" pattern="[0-9()×*+-./^π]*?" style="width: 70px">
+            </label>
+            <label style="font-size: 30px"> r
+                <input type="text" name="r" pattern="[0-9()×*+-./^π]*?" style="width: 70px">
+            </label>
+            <button type="submit">Solve</button>
+        </form>
+        <h1>{{answer}}</h1>
         {% elif val == 15 %}
         <img src="{{url_for('static', filename='ci.jpg')}}" alt="Equation" style="max-width: 500px; max-height: 500px"/>
+        <form method="POST">
+            <label style="font-size: 30px"> A
+                <input type="text" name="A" pattern="[0-9()×*+-./^π]*?" style="width: 70px">
+            </label>
+            <label style="font-size: 30px"> P
+                <input type="text" name="P" pattern="[0-9()×*+-./^π]*?" style="width: 70px">
+            </label>
+            <label style="font-size: 30px"> r (in %)
+                <input type="text" name="r%" pattern="[0-9()×*+-./^π]*?" style="width: 70px">
+            </label>
+            <label style="font-size: 30px"> n
+                <input type="text" name="n" pattern="[0-9()×*+./^π]*?" style="width: 70px">
+            </label>
+            <label style="font-size: 30px"> t
+                <input type="text" name="t" pattern="[0-9()×*+-./^π]*?" style="width: 70px">
+            </label>
+            <button type="submit">Solve</button>
+        </form>
+        <h1>{{answer}}</h1>
         {% elif val == 16 %}
         <img src="{{url_for('static', filename='combination.png')}}" alt="Equation" style="max-width: 500px; max-height: 500px"/>
+        <form method="POST">
+            <label style="font-size: 30px"> <sub>n</sub>C<sub>r</sub>
+                <input type="text" name="nCr" value="" pattern="[0-9()×*+/^π]*?" style="width: 70px; pointer-events: none; background: lightgrey" readonly="readonly">
+            </label>
+            <label style="font-size: 30px"> n
+                <input type="text" name="n" pattern="[0-9()×*+/^π]*?" style="width: 70px">
+            </label>
+            <label style="font-size: 30px"> r
+                <input type="text" name="r" pattern="[0-9()×*+/^π]*?" style="width: 70px">
+            </label>
+            <button type="submit">Solve</button>
+        </form>
+        <h1>{{answer}}</h1>
         {% elif val == 17 %}
         <img src="{{url_for('static', filename='perm.jpg')}}" alt="Equation" style="max-width: 500px; max-height: 500px"/>
+        <form method="POST">
+            <label style="font-size: 30px"> <sub>n</sub>P<sub>r</sub>
+                <input type="text" name="nPr" value="" pattern="[0-9()×*+/^π]*?" style="width: 70px; pointer-events: none; background: lightgrey" readonly="readonly">
+            </label>
+            <label style="font-size: 30px"> n
+                <input type="text" name="n" pattern="[0-9()×*+/^π]*?" style="width: 70px">
+            </label>
+            <label style="font-size: 30px"> r
+                <input type="text" name="r" pattern="[0-9()×*+/^π]*?" style="width: 70px">
+            </label>
+            <button type="submit">Solve</button>
+        </form>
+        <h1>{{answer}}</h1>
         {% elif val == 18 %}
         <img src="{{url_for('static', filename='ver.png')}}" alt="Equation" style="max-width: 500px; max-height: 500px"/>
+        <form method="POST">
+            <label style="font-size: 30px"> x
+                <input type="text" name="x" pattern="[0-9()×*+-./^π]*?" style="width: 70px">
+            </label>
+            <label style="font-size: 30px"> a
+                <input type="text" name="a" pattern="[0-9()×*+-./^π]*?" style="width: 70px">
+            </label>
+            <label style="font-size: 30px"> b
+                <input type="text" name="b" pattern="[0-9()×*+-./^π]*?" style="width: 70px">
+            </label>
+            <button type="submit">Solve</button>
+        </form>
+        <h1>{{answer}}</h1>
         {% elif val == 19 %}
         <img src="{{url_for('static', filename='qu.png')}}" alt="Equation" style="max-width: 500px; max-height: 500px"/>
+        <form method="POST">
+            <label style="font-size: 30px"> x
+                <input type="text" name="x" pattern="[0-9()×*+-./^π]*?" style="width: 70px">
+            </label>
+            <label style="font-size: 30px"> a
+                <input type="text" name="a" pattern="[0-9()×*+-./^π]*?" style="width: 70px">
+            </label>
+            <label style="font-size: 30px"> b
+                <input type="text" name="b" pattern="[0-9()×*+-./^π]*?" style="width: 70px">
+            </label>
+            <label style="font-size: 30px"> c
+                <input type="text" name="c" pattern="[0-9()×*+-./^π]*?" style="width: 70px">
+            </label>
+            <button type="submit">Solve</button>
+        </form>
+        <h1>{{answer}}</h1>
         {% elif val == 20 %}
         <img src="{{url_for('static', filename='dis.png')}}" alt="Equation" style="max-width: 500px; max-height: 500px"/>
+        <form method="POST">
+            <label style="font-size: 30px"> Discriminant
+                <input type="text" name="disc" pattern="[0-9()×*+-./^π]*?" style="width: 70px">
+            </label>
+            <label style="font-size: 30px"> a
+                <input type="text" name="a" pattern="[0-9()×*+-./^π]*?" style="width: 70px">
+            </label>
+            <label style="font-size: 30px"> b
+                <input type="text" name="b" pattern="[0-9()×*+-./^π]*?" style="width: 70px">
+            </label>
+            <label style="font-size: 30px"> c
+                <input type="text" name="c" pattern="[0-9()×*+-./^π]*?" style="width: 70px">
+            </label>
+            <button type="submit">Solve</button>
+        </form>
+        <h1>{{answer}}</h1>
         {% elif val == 21 %}
         <img src="{{url_for('static', filename='pyramid-volume.png')}}" alt="Equation" style="max-width: 500px; max-height: 500px"/>
+        <form method="POST">
+            <label style="font-size: 30px"> V
+                <input type="text" name="V" pattern="[0-9()×*+./^π]*?" style="width: 70px">
+            </label>
+            <label style="font-size: 30px"> l
+                <input type="text" name="l" pattern="[0-9()×*+./^π]*?" style="width: 70px">
+            </label>
+            <label style="font-size: 30px"> w
+                <input type="text" name="w" pattern="[0-9()×*+./^π]*?" style="width: 70px">
+            </label>
+            <label style="font-size: 30px"> h
+                <input type="text" name="h" pattern="[0-9()×*+./^π]*?" style="width: 70px">
+            </label>
+            <button type="submit">Solve</button>
+        </form>
+        <h1>{{answer}}</h1>
         {% elif val == 22 %}
         <img src="{{url_for('static', filename='vc.png')}}" alt="Equation" style="max-width: 500px; max-height: 500px"/>
+        <form method="POST">
+            <label style="font-size: 30px"> V
+                <input type="text" name="V" pattern="[0-9()×*+./^π]*?" style="width: 70px">
+            </label>
+            <label style="font-size: 30px"> r
+                <input type="text" name="r" pattern="[0-9()×*+./^π]*?" style="width: 70px">
+            </label>
+            <label style="font-size: 30px"> h
+                <input type="text" name="h" pattern="[0-9()×*+./^π]*?" style="width: 70px">
+            </label>
+            <button type="submit">Solve</button>
+        </form>
+        <h1>{{answer}}</h1>
         {% elif val == 23 %}
         <img src="{{url_for('static', filename='Volume-of-a-Sphere-Formula.png')}}" alt="Equation" style="max-width: 500px; max-height: 500px"/>
+        <form method="POST">
+            <label style="font-size: 30px"> V
+                <input type="text" name="V" pattern="[0-9()×*+./^π]*?" style="width: 70px">
+            </label>
+            <label style="font-size: 30px"> r
+                <input type="text" name="r" pattern="[0-9()×*+./^π]*?" style="width: 70px">
+            </label>
+            <button type="submit">Solve</button>
+        </form>
+        <h1>{{answer}}</h1>
         {% elif val == 24 %}
         <img src="{{url_for('static', filename='conearea.png')}}" alt="Equation" style="max-width: 500px; max-height: 500px"/>
+        <form method="POST">
+            <label style="font-size: 30px"> A
+                <input type="text" name="A" pattern="[0-9()×*+./^π]*?" style="width: 70px">
+            </label>
+            <label style="font-size: 30px"> r
+                <input type="text" name="r" pattern="[0-9()×*+./^π]*?" style="width: 70px">
+            </label>
+            <label style="font-size: 30px"> l
+                <input type="text" name="l" pattern="[0-9()×*+./^π]*?" style="width: 70px">
+            </label>
+            <button type="submit">Solve</button>
+        </form>
+        <h1>{{answer}}</h1>
         {% elif val == 25 %}
         <img src="{{url_for('static', filename='sa.jpg')}}" alt="Equation" style="max-width: 500px; max-height: 500px"/>
+        <form method="POST">
+            <label style="font-size: 30px"> A
+                <input type="text" name="A" pattern="[0-9()×*+./^π]*?" style="width: 70px">
+            </label>
+            <label style="font-size: 30px"> r
+                <input type="text" name="r" pattern="[0-9()×*+./^π]*?" style="width: 70px">
+            </label>
+            <button type="submit">Solve</button>
+        </form>
+        <h1>{{answer}}</h1>
         {% elif val == 26 %}
         <img src="{{url_for('static', filename='sinrule.png')}}" alt="Equation" style="max-width: 500px; max-height: 500px"/>
+        <form method="POST">
+            <label style="font-size: 30px"> a
+                <input type="text" name="a" pattern="[0-9()×*+./^π]*?" style="width: 70px">
+            </label>
+            <label style="font-size: 30px"> b
+                <input type="text" name="b" pattern="[0-9()×*+./^π]*?" style="width: 70px">
+            </label>
+            <label style="font-size: 30px"> A (in rads)
+                <input type="text" name="A" pattern="[0-9()×*+./^π]*?" style="width: 70px">
+            </label>
+            <label style="font-size: 30px"> B (in rads)
+                <input type="text" name="B" pattern="[0-9()×*+./^π]*?" style="width: 70px">
+            </label>
+            <button type="submit">Solve</button>
+        </form>
+        <h1>{{answer}}</h1>
         {% elif val == 27 %}
         <img src="{{url_for('static', filename='cosinrule.jpg')}}" alt="Equation" style="max-width: 500px; max-height: 500px"/>
+        <form method="POST">
+            <label style="font-size: 30px"> a
+                <input type="text" name="a" pattern="[0-9()×*+./^π]*?" style="width: 70px">
+            </label>
+            <label style="font-size: 30px"> b
+                <input type="text" name="b" pattern="[0-9()×*+./^π]*?" style="width: 70px">
+            </label>
+            <label style="font-size: 30px"> c
+                <input type="text" name="c" pattern="[0-9()×*+./^π]*?" style="width: 70px">
+            </label>
+            <label style="font-size: 30px"> C (in rads)
+                <input type="text" name="C" pattern="[0-9()×*+./^π]*?" style="width: 70px">
+            </label>
+            <button type="submit">Solve</button>
+        </form>
+        <h1>{{answer}}</h1>
         {% elif val == 28 %}
         <img src="{{url_for('static', filename='tri.jpg')}}" alt="Equation" style="max-width: 500px; max-height: 500px"/>
+        <form method="POST">
+            <label style="font-size: 30px"> Area
+                <input type="text" name="Area" pattern="[0-9()×*+./^π]*?" style="width: 70px">
+            </label>
+            <label style="font-size: 30px"> a
+                <input type="text" name="a" pattern="[0-9()×*+./^π]*?" style="width: 70px">
+            </label>
+            <label style="font-size: 30px"> b
+                <input type="text" name="b" pattern="[0-9()×*+./^π]*?" style="width: 70px">
+            </label>
+            <label style="font-size: 30px"> C (in rads)
+                <input type="text" name="C" pattern="[0-9()×*+./^π]*?" style="width: 70px">
+            </label>
+            <button type="submit">Solve</button>
+        </form>
+        <h1>{{answer}}</h1>
         {% elif val == 29 %}
         <img src="{{url_for('static', filename='arcl.png')}}" alt="Equation" style="max-width: 500px; max-height: 500px"/>
+        <form method="POST">
+            <label style="font-size: 30px"> l
+                <input type="text" name="l" pattern="[0-9()×*+./^π]*?" style="width: 70px">
+            </label>
+            <label style="font-size: 30px"> θ (in rads)
+                <input type="text" name="θ" pattern="[0-9()×*+./^π]*?" style="width: 70px">
+            </label>
+            <label style="font-size: 30px"> r
+                <input type="text" name="r" pattern="[0-9()×*+./^π]*?" style="width: 70px">
+            </label>
+            <button type="submit">Solve</button>
+        </form>
+        <h1>{{answer}}</h1>
         {% elif val == 30 %}
         <img src="{{url_for('static', filename='sectorarea.png')}}" alt="Equation" style="max-width: 500px; max-height: 500px"/>
+        <form method="POST">
+            <label style="font-size: 30px"> A
+                <input type="text" name="A" pattern="[0-9()×*+./^π]*?" style="width: 70px">
+            </label>
+            <label style="font-size: 30px"> r
+                <input type="text" name="r" pattern="[0-9()×*+./^π]*?" style="width: 70px">
+            </label>
+            <label style="font-size: 30px"> θ (in rads)
+                <input type="text" name="θ" pattern="[0-9()×*+./^π]*?" style="width: 70px">
+            </label>
+            <button type="submit">Solve</button>
+        </form>
+        <h1>{{answer}}</h1>
         {% elif val == 31 %}
         <img src="{{url_for('static', filename='vectorm.png')}}" alt="Equation" style="max-width: 500px; max-height: 500px"/>
+        <form method="POST">
+            <label style="font-size: 30px"> |<strong>v</strong>|
+                <input type="text" name="Area" pattern="[0-9()×*+-./^π]*?" style="width: 70px">
+            </label>
+            <label style="font-size: 30px"> v<sub>1</sub>
+                <input type="text" name="v1" pattern="[0-9()×*+-./^π]*?" style="width: 70px">
+            </label>
+            <label style="font-size: 30px"> v<sub>2</sub>
+                <input type="text" name="v2" pattern="[0-9()×*+-./^π]*?" style="width: 70px">
+            </label>
+            <button type="submit">Solve</button>
+        </form>
+        <h1>{{answer}}</h1>
         {% elif val == 32 %}
         <img src="{{url_for('static', filename='dot.jpg')}}" alt="Equation" style="max-width: 500px; max-height: 500px"/>
+        <form method="POST">
+            <label style="font-size: 30px"> <strong>a</strong> ⋅ <strong>b</strong>
+                <input type="text" name="a⋅b" pattern="[0-9()×*+-./^π]*?" style="width: 70px">
+            </label>
+            <label style="font-size: 30px"> a<sub>1</sub>
+                <input type="text" name="a1" pattern="[0-9()×*+-./^π]*?" style="width: 70px">
+            </label>
+            <label style="font-size: 30px"> a<sub>2</sub>
+                <input type="text" name="a2" pattern="[0-9()×*+-./^π]*?" style="width: 70px">
+            </label>
+            <label style="font-size: 30px"> b<sub>1</sub>
+                <input type="text" name="b1" pattern="[0-9()×*+-./^π]*?" style="width: 70px">
+            </label>
+            <label style="font-size: 30px"> b<sub>2</sub>
+                <input type="text" name="b2" pattern="[0-9()×*+-./^π]*?" style="width: 70px">
+            </label>
+            <button type="submit">Solve</button>
+        </form>
+        <h1>{{answer}}</h1>
         {% elif val == 33 %}
         <img src="{{url_for('static', filename='angle-two-vectors.png')}}" alt="Equation" style="max-width: 500px; max-height: 500px"/>
+        <form method="POST">
+            <label style="font-size: 30px"> θ (in rads)
+                <input type="text" name="θ" pattern="[0-9()×*+./^π]*?" style="width: 70px">
+            </label>
+            <label style="font-size: 30px"> u<sub>1</sub>
+                <input type="text" name="u1" pattern="[0-9()×*+-./^π]*?" style="width: 70px">
+            </label>
+            <label style="font-size: 30px"> u<sub>2</sub>
+                <input type="text" name="u2" pattern="[0-9()×*+-./^π]*?" style="width: 70px">
+            </label>
+            <label style="font-size: 30px"> v<sub>1</sub>
+                <input type="text" name="v1" pattern="[0-9()×*+-./^π]*?" style="width: 70px">
+            </label>
+            <label style="font-size: 30px"> v<sub>2</sub>
+                <input type="text" name="v2" pattern="[0-9()×*+-./^π]*?" style="width: 70px">
+            </label>
+            <button type="submit">Solve</button>
+        </form>
+        <h1>{{answer}}</h1>
         {% endif %}
     </div>
 </body>
