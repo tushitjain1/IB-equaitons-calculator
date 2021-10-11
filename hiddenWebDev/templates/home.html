@@ -646,7 +646,7 @@
         <img src="{{url_for('static', filename='angle-two-vectors.png')}}" alt="Equation" style="max-width: 500px; max-height: 500px"/>
         <form method="POST">
             <label style="font-size: 30px"> θ (in rads)
-                <input type="text" name="θ" pattern="[0-9()×*+./^π]*?" style="width: 70px">
+                <input type="text" name="θ" value="" pattern="[0-9()×*+/^π]*?" style="width: 70px; pointer-events: none; background: lightgrey" readonly="readonly">
             </label>
             <label style="font-size: 30px"> u<sub>1</sub>
                 <input type="text" name="u1" pattern="[0-9()×*+-./^π]*?" style="width: 70px">
