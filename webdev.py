@@ -1,4 +1,6 @@
 from flask import Flask, render_template,request
+import webbrowser
+import os
 import math
 from functions import runFunction
 app = Flask(__name__)
@@ -69,6 +71,8 @@ def calculator(calcText):
         return "Zero Division Error!"
     return answer
 
-
 if __name__ == '__main__':
-    app.run(debug=True)
+    if not os.environ.get("WERKZEUG_RUN_MAIN"):
+        webbrowser.open_new('http://127.0.0.1:5000/')
+
+    app.run(host="127.0.0.1", port=5000)
