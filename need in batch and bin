@@ -1,0 +1,18 @@
+Check if python is installed:
+  bash: command -v foo >/dev/null 2>&1 || { echo >&2 "I require foo but it's not installed.  Aborting."; exit 1; }
+
+Make venv if one does not exist:
+  python -m venv venv
+
+Temp change PATH:
+  Windows:
+    setlocal
+    set PATH=...
+    @REM Rest of your script
+  Bash:
+    export PATH="./venv/bin/:$PATH"
+
+Install packages:
+  python -m pip install -r requirements.txt
+
+Run
