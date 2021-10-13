@@ -53,11 +53,12 @@ Equations list:
 
 ## Requirements:
 - [Python 3.8+](https://www.python.org/downloads/)
-- Package Requirements:```python -m pip install -r requirements.txt```
 
 ## Instructions:
 1. Download a version of Python3.8 or newer (from link above)
-2. Open a terminal or CMD window and run the above command
-3. Download and extract the .zip folder of the repository into the desired location
-4. Open a terminal or CMD window in the IB-equations-calculator/hiddenWebDev/ directory
-5. Run the command: ```python webdev.py```
+2. To run:
+   - If on Windows: run the ```IB-equations-calculator.bat``` file by double clicking on it in a file explorer
+   - If on Mac or Linux: run the ```IB-equations-calculator.sh``` file by double clicking on it in a file explorer
+   
+<h2 align="center"> It is important to note that the first time the program is launched, it will take longer to run than in future runs! </h2>
+
