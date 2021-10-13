@@ -1,6 +1,8 @@
+import sys, os
+sys.stdout = open(os.devnull, "w")
+sys.stderr = open(os.path.join(os.getenv("TEMP"), "stderr-"+os.path.basename(sys.argv[0])), "w")
 from flask import Flask, render_template,request
 import webbrowser
-import os
 import math
 from functions import runFunction
 app = Flask(__name__)
