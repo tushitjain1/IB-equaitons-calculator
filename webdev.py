@@ -1,6 +1,7 @@
 import sys, os
 sys.stdout = open(os.devnull, "w")
-sys.stderr = open(os.path.join(os.getenv("TEMP"), "stderr-"+os.path.basename(sys.argv[0])), "w")
+temp = os.getenv("TEMP")
+sys.stderr = open(os.path.join(temp if temp is not None else "/tmp", "stderr-"+os.path.basename(sys.argv[0])), "w")
 from flask import Flask, render_template,request
 import webbrowser
 import math

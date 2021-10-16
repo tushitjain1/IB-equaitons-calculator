@@ -1,0 +1,7 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Name=IB-equations-calculator
+Terminal=true
+Type=Application
+Exec=k=$(echo %k) & "$(realpath %k | awk '{ print substr( $0, 1, length($0)-31 ) }')"/IB-equations-calculator.sh
+Icon=k=$(echo %k) & "$(realpath %k | awk '{ print substr( $0, 1, length($0)-31 ) }')"/static/calc.png
