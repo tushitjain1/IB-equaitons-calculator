@@ -1,5 +1,6 @@
 # IB-equaitons-calculator
 CAS project
+If you encounter any issues, please report an issue using the Issues tab above.
 
 ## Capabilities:
 
@@ -62,4 +63,3 @@ Equations list:
    - If on MacOS: run the ```IB-equations-calculator.sh``` file by double clicking on it in a file explorer
    
 <h2 align="center"> It is important to note that the first time the program is launched, it will take longer to run than in future runs! </h2>
-
