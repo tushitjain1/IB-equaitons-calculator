@@ -57,6 +57,7 @@ Equations list:
 ## Instructions:
 1. Download a version of Python3.8 or newer (from link above)
 2. Click on the green button above labelled "Code" and select "Download ZIP"
+![image](https://user-images.githubusercontent.com/57779612/142260059-7c26bc31-01a2-41b4-bcc9-e87cdb2732ea.png)
 3. Wait for the download to finish and extract the contents of the ```IB-equaitons-calculator-main.zip```
 4. To run:
    - If on **Windows**: run the ```IB-equations-calculator.exe``` file by double clicking on it in a file explorer
