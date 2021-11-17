@@ -1,5 +1,6 @@
 # IB-equaitons-calculator
 CAS project
+
 If you encounter any issues, please report an issue using the Issues tab above.
 
 ## Capabilities:
